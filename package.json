@@ -1,0 +1,44 @@
+{
+  "name": "api-hotelera",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "hotel"
+  ],
+  "homepage": "https://github.com/FkLOCALHOST/API_Hotelera#readme",
+  "bugs": {
+    "url": "https://github.com/FkLOCALHOST/API_Hotelera/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FkLOCALHOST/API_Hotelera.git"
+  },
+  "license": "MIT",
+  "author": "FkLOCALHOST",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "api-hotelera": "file:",
+    "argon2": "^0.41.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
