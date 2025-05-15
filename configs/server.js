@@ -5,6 +5,7 @@ import cors from "cors";
 import morgan from "morgan";
 import express from "express";
 import { connectionDB } from "./mongo.js";
+import authRoutes from "../src/auth/auth.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended:false}));
@@ -15,6 +16,10 @@ const middlewares = (app) => {
 
 };
 
+const routes = (app) =>{
+    app.use("/hotelManagerSystem/v1/auth", authRoutes);
+}
+
 
 const connectionMongo = async() =>{
     try{
@@ -24,11 +29,13 @@ const connectionMongo = async() =>{
     }
 };
 
+
 export const initServer = () => {
     const app = express();
     const timeInit = Date.now();
     try{
         middlewares(app);
+        routes(app);
         connectionMongo();
         app.listen(process.env.PORT);
         const elapsedTime = Date.now() - timeInit;
