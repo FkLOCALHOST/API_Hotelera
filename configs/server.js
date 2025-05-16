@@ -6,6 +6,7 @@ import morgan from "morgan";
 import express from "express";
 import { connectionDB } from "./mongo.js";
 import authRoutes from "../src/auth/auth.routes.js"
+import eventRoutes from "../src/event/event.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended:false}));
@@ -18,6 +19,7 @@ const middlewares = (app) => {
 
 const routes = (app) =>{
     app.use("/hotelManagerSystem/v1/auth", authRoutes);
+    app.use("/hotelManagerSystem/v1/event", eventRoutes);
 }
 
 
