@@ -775,7 +775,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Amenity Copy",
+					"name": "Update Amenity",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -826,7 +826,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Amenity Copy",
+					"name": "Update Amenity",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -870,6 +870,258 @@
 								{
 									"key": "uid",
 									"value": "6826a6c08e7e69613908a6a6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Register Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Hotel El Paraíso\",\r\n  \"email\": \"contacto@elparaiso.com\",\r\n  \"phone\": \"50212345678\",\r\n  \"addres\": \"Calle Real, Zona 1, Guatemala\",\r\n  \"category\": \"4 STARS\",\r\n  \"price\": 1200,\r\n  \"description\": \"Un hotel cómodo con vista al lago.\",\r\n  \"department\": \"Guatemala\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/createHotel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"hotel",
+								"createHotel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/getHotels",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"hotel",
+								"getHotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Hotelby Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/getHotelById/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"hotel",
+								"getHotelById",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "6826aceeb33f7a217a4c710f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/deleteHotel/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"hotel",
+								"deleteHotel",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "6826aceeb33f7a217a4c710f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateHotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Hotel El Paraíso\",\r\n  \"email\": \"contacto@elparaiso.com\",\r\n  \"phone\": \"50212345678\",\r\n  \"addres\": \"Calle Real, Zona 1, Guatemala\",\r\n  \"category\": \"2 STARS\",\r\n  \"price\": 1200,\r\n  \"description\": \"Un hotel cómodo con vista al lago.\",\r\n  \"department\": \"Guatemala\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/updateHotel/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"hotel",
+								"updateHotel",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "6826aceeb33f7a217a4c710f"
 								}
 							]
 						}
