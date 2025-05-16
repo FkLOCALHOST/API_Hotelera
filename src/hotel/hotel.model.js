@@ -14,9 +14,9 @@ const hotelSchema = new Schema({
         type: String,
         required: true
     },
-    direction: {
+    addres:{
         type: String,
-        required: true,
+        required: true
     },
     category: {
         type: String,
@@ -30,6 +30,10 @@ const hotelSchema = new Schema({
     description: {
         type: String,
         required: true,
+    },
+    department:{
+        type: String,
+        required: true
     },
     rooms: [{
         type: Schema.Types.ObjectId,
