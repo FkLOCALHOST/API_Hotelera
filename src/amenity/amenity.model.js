@@ -10,8 +10,12 @@ const amenitySchema = new Schema({
         required: true
     },
     price:{
-        typr: String,
+        type: String,
         required: true
+    },
+    status:{
+        type: Boolean,
+        default: true
     }
 })
 
