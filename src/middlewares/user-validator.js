@@ -13,7 +13,8 @@ export const registerValidator = [
     body("email").isEmail().withMessage("Invalid Email"),
     body("email").custom(emailExist),
     body("userName").custom(userNameExist),
-    validationsFields
+    validationsFields,
+    deleteFileOnError
 ];
 
 export const loginValidator = [

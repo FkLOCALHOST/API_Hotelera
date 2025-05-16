@@ -1,4 +1,5 @@
 import User from "../user/user.model.js";
+import Amenity from "../amenity/amenity.model.js"
 
 export const emailExist = async(email = "") =>{
     const exist = await User.findOne({email});
@@ -18,6 +19,13 @@ export const userNameExist = async(userName = "") =>{
 
 export const uidExist = async(uid = "") =>{
     const exist = await User.findById(uid);
+    if(!exist){
+        throw new Error("No exixte el ID proporcionado");
+    }
+}
+
+export const uidAmenityExist = async(uid = "") =>{
+    const exist = await Amenity.findById(uid);
     if(!exist){
         throw new Error("No exixte el ID proporcionado");
     }
