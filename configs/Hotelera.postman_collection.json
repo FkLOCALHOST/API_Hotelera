@@ -824,57 +824,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Update Amenity",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Jacuzzi\",\r\n  \"description\": \"Acceso al jacuzzi del hotel durante el día\",\r\n  \"price\": \"30.00\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/amenity/updateAmenity/:uid",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3005",
-							"path": [
-								"hotelManagerSystem",
-								"v1",
-								"amenity",
-								"updateAmenity",
-								":uid"
-							],
-							"variable": [
-								{
-									"key": "uid",
-									"value": "6826a6c08e7e69613908a6a6"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1122,6 +1071,756 @@
 								{
 									"key": "uid",
 									"value": "6826aceeb33f7a217a4c710f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Create Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "number",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cuarto Base",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6826aceeb33f7a217a4c710f",
+									"type": "text"
+								},
+								{
+									"key": "preView",
+									"type": "file",
+									"src": "/C:/Users/javie/Desktop/140206845.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/createRoom",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"createRoom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Room",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/getRooms",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"getRooms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Room by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/getRoomById/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"getRoomById",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upddate Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "number",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cuarto Base",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6826aceeb33f7a217a4c710f",
+									"type": "text"
+								},
+								{
+									"key": "preView",
+									"type": "file",
+									"src": "/C:/Users/javie/Desktop/140206845.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/updateRoom/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"updateRoom",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/deleteRoom/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"deleteRoom",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Amenity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amenities\": [\"6826a6c08e7e69613908a6a6\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/addAmenity/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"addAmenity",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Amenity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amenities\": [\"6826a6c08e7e69613908a6a6\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/addAmenity/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"addAmenity",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Create Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MDY0MTUsImV4cCI6MTc0NzYxMDAxNX0.lfYqE6-4T-y9_bu2GSkfb4ea7A4RR5mC8_v-va9TH5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/createReservation",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"createReservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/getReservations",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"getReservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reservation by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/getReservationById/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"getReservationById",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a546d7a682b8ce5da79d8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\",\r\n  \"status\": \"COMPLETED\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/updateReservation/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"updateReservation",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a546d7a682b8ce5da79d8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/deleteReservation/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"deleteReservation",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a546d7a682b8ce5da79d8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"68255e6a5e11caa38b7cc471\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\",\r\n  \"status\": \"COMPLETED\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/completeReservation/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"completeReservation",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a5e019c9a8aae483e56a2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"68255e6a5e11caa38b7cc471\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\",\r\n  \"status\": \"COMPLETED\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/completeReservation/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"completeReservation",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a5e019c9a8aae483e56a2"
 								}
 							]
 						}
