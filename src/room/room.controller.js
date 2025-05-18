@@ -1,5 +1,6 @@
 import Room from "./room.model.js"
 import Hotel from "../hotel/hotel.model.js"
+import Amenity from "../amenity/amenity.model.js"
 
 export const createRoom = async (req, res) => {
     try {
@@ -114,6 +115,34 @@ export const deleteRoom = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error deleting room",
+            error: error.message
+        });
+    }
+};
+
+export const addAmenity = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const { amenities } = req.body; 
+
+        const updatedRoom = await Room.findByIdAndUpdate(uid,{ $addToSet: { amenity: { $each: amenities } } },{ new: true }).populate("amenity");
+
+        if (!updatedRoom) {
+            return res.status(404).json({
+                success: false,
+                message: "Room not found"
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Room updated",
+            room: updatedRoom
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error updating room",
             error: error.message
         });
     }

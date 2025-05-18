@@ -49,6 +49,16 @@ const userSchema = Schema({
         ref: "Event",
         default: []
     }],
+    reservations: [{
+        type: Schema.Types.ObjectId,
+        ref: "Reservation",
+        default: [] 
+    }],
+    historyOfReservations:[{
+        type: Schema.Types.ObjectId,
+        ref: "Reservation",
+        default: []
+    }],
     status: {
         type: Boolean,
         default: true,

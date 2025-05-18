@@ -5,48 +5,27 @@ const reservationSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true
     },
-    Date:{
+    checkIn: {
         type: Date,
         required: true
+    },
+    checkOut:{
+        type: Date,
+        required: true
+    },
+    date:{
+        type: Date,
+        default: new Date()
     },
     room:{
-        type: String,
-        required: true
-    },
-    addres:{
-        type: String,
-        required: true
-    },
-    category: {
-        type: String,
-        enum: ['1 STARS', '2 STARS', '3 STARS', '4 STARS', '5 STARS'],
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-    },
-    description: {
-        type: String,
-        required: true,
-    },
-    department:{
-        type: String,
-        required: true
-    },
-    rooms: [{
         type: Schema.Types.ObjectId,
-        ref: 'Room',
-        default: [],
-    }],
-    status: {
-        type: Boolean,
-        default: true
+        required: true
     },
-    registerDate: {
-        type: Date,
-        default: new Date(),
-    }
+    status: {
+        type: String,
+        enum: ["PENDING","COMPLETED","CANCELLED"],
+        default: "PENDING"
+    },
 });
 
 reservationSchema.methods.toJSON = function () {

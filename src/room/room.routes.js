@@ -1,8 +1,6 @@
 import { Router } from "express";
-import { createRoom ,getRoomById ,getRooms ,updateRoom , deleteRoom } from "./room.controller.js";
-
+import { createRoom ,getRoomById ,getRooms ,updateRoom , deleteRoom, addAmenity} from "./room.controller.js";
 import {registerRoomValidator, getRoomByIdValidator, updateRoomValidator, deleteRoomValidator} from "../middlewares/room-validator.js";
-
 import { uploadRoomPicture } from "../middlewares/multer-uploads.js";
 
 const router = Router();
@@ -36,6 +34,11 @@ router.patch(
     "/deleteRoom/:uid",
     deleteRoomValidator,
     deleteRoom
+);
+
+router.patch(
+    "/addAmenity/:uid",
+    addAmenity
 );
 
 export default router;

@@ -1,7 +1,6 @@
 import { body , check, param} from "express-validator";
 import { emailExist, userNameExist , uidExist} from "../helpers/db-validators.js";
 import { validationsFields } from "./validatorsFields.js";
-import {deleteFileOnError} from "./delete-file-error.js"
 import { validateJWT } from "./validate-token.js";
 import { hasRoles } from "./validate-role.js";
 import { catchErrors } from "./catch-errors.js";
@@ -14,7 +13,6 @@ export const registerValidator = [
     body("email").custom(emailExist),
     body("userName").custom(userNameExist),
     validationsFields,
-    deleteFileOnError
 ];
 
 export const loginValidator = [
