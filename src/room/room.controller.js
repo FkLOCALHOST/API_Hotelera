@@ -1,0 +1,120 @@
+import Room from "./room.model.js"
+import Hotel from "../hotel/hotel.model.js"
+
+export const createRoom = async (req, res) => {
+    try {
+        const data = req.body;
+        let preView = req.file ? req.file.filename : null;
+        data.preView = preView
+
+        const room = await Room.create(data);
+        await Hotel.findByIdAndUpdate(data.hotel,{$push: {rooms: room._id}}, {new: true})
+        return res.status(201).json({
+            message: "Room has been created",
+            room
+        });
+    } catch (err) {
+        return res.status(500).json({
+            message: "Room registration failed",
+            error: err.message
+        });
+    }
+}
+
+export const getRoomById = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const room = await Room.findById(uid)
+            .populate("amenity") 
+
+        if (!room || room.status === false) {
+            return res.status(404).json({
+                success: false,
+                message: "Room not found"
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            room
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retrieving room",
+            error: error.message
+        });
+    }
+};
+
+export const getRooms = async (req, res) => {
+    try {
+        const { limite = 5, desde = 0 } = req.query;
+        const query = { status: true };
+
+        const [total, rooms] = await Promise.all([
+            Room.countDocuments(query),
+            Room.find(query)
+                .skip(Number(desde))
+                .limit(Number(limite))
+                .populate("amenity")
+        ]);
+
+        return res.status(200).json({
+            success: true,
+            total,
+            rooms
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error retrieving rooms",
+            error: error.message
+        });
+    }
+};
+
+export const updateRoom = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const data = req.body;
+
+        if (req.file) {
+            data.preView = req.file.filename;
+        }
+
+        const room = await Room.findByIdAndUpdate(uid, data, { new: true });
+
+        return res.status(200).json({
+            success: true,
+            message: "Room updated",
+            room
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error updating room",
+            error: error.message
+        });
+    }
+};
+
+export const deleteRoom = async (req, res) => {
+    try {
+        const { uid } = req.params;
+
+        const room = await Room.findByIdAndUpdate(uid, { status: false }, { new: true });
+
+        return res.status(200).json({
+            success: true,
+            message: "Room deleted",
+            room
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error deleting room",
+            error: error.message
+        });
+    }
+};
