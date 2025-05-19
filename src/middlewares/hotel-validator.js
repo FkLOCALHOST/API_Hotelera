@@ -1,4 +1,4 @@
-import { body, param } from "express-validator";
+import { body, param, query } from "express-validator";
 import { uidHotelExist } from "../helpers/db-validators.js";
 import { validationsFields } from "./validatorsFields.js";
 import { validateJWT } from "./validate-token.js";
@@ -46,4 +46,12 @@ export const updateHotelValidator = [
     param("uid").custom(uidHotelExist),
     validationsFields,
     catchErrors
+];
+
+export const searchHotelsValidator = [
+  query("search").optional().isString().withMessage("El término de búsqueda debe ser texto"),
+  query("limite").optional().isInt({ min: 1 }).withMessage("El parámetro limite debe ser un entero positivo"),
+  query("desde").optional().isInt({ min: 0 }).withMessage("El parámetro desde debe ser un entero no negativo"),
+  validationsFields,
+  catchErrors
 ];
