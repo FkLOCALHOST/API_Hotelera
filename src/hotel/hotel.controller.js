@@ -72,18 +72,14 @@ export const getHotels = async (req, res) => {
 
 export const searchHotels = async (req, res) => {
     try {
-        // Extract pagination and search parameters
         const { limite = 5, desde = 0, search = "" } = req.query;
         const skip = Number(desde);
         const limit = Number(limite);
-        // Build base query for active hotels
         const query = { status: true };
-        // If search term provided, filter by name or department (case-insensitive)
         if (search) {
             const regex = new RegExp(search, 'i');
             query.$or = [ { name: regex }, { department: regex } ];
         }
-        // Execute count and find in parallel
         const [total, hotels] = await Promise.all([
             Hotel.countDocuments(query),
             Hotel.find(query)
