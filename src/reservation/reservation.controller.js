@@ -1,15 +1,20 @@
 import Reservation from './reservation.model.js';
 import Room from "../room/room.model.js"
 import User from "../user/user.model.js"
+import { generateReservationPDF } from '../middlewares/receipt-generator.js';
 
 export const createReservation = async (req, res) => {
     try {
         const data = req.body;
         const reservation = await Reservation.create(data);
-        
-        await Room.findByIdAndUpdate(reservation.room, {$push: {reservations: reservation._id}}, {new:true});
-        await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true});
-        
+
+        const room = await Room.findById(reservation.room);
+
+        Promise.all([
+            await Room.findByIdAndUpdate(reservation.room, {$push: {reservations: reservation._id}}, {new:true}),
+            await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true})
+        ])
+        generateReservationPDF(reservation,room);
         return res.status(201).json({
             success: true,
             message: 'Reserva creada',

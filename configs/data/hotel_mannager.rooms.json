@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "68292ce151884ac3f5d9d117"
+  },
+  "number": "1",
+  "price": "200",
+  "description": "Cuarto Base",
+  "amenity": [
+    {
+      "$oid": "6826a6c08e7e69613908a6a6"
+    }
+  ],
+  "capacity": "4",
+  "hotel": {
+    "$oid": "6826aceeb33f7a217a4c710f"
+  },
+  "preView": "140206845-1747528929446.jpeg",
+  "status": true,
+  "__v": 0,
+  "reservations": [
+    {
+      "$oid": "682aa839d38ae06a244fc7c8"
+    }
+  ]
+}]

@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "6826aceeb33f7a217a4c710f"
+  },
+  "name": "Hotel El Paraíso",
+  "email": "contacto@elparaiso.com",
+  "phone": "50212345678",
+  "addres": "Calle Real, Zona 1, Guatemala",
+  "category": "2 STARS",
+  "price": 1200,
+  "description": "Un hotel cómodo con vista al lago.",
+  "department": "Guatemala",
+  "rooms": [
+    {
+      "$oid": "68292ce151884ac3f5d9d117"
+    }
+  ],
+  "status": true,
+  "registerDate": {
+    "$date": "2025-05-16T03:11:34.810Z"
+  },
+  "__v": 0
+}]
