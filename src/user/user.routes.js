@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { getUserById, getUsers, deleteUser, updatePassword, updateUser, updateProfilePicture} from "./user.controller.js"
+import { getUserById, getUsers, deleteUser, updatePassword, updateUser, updateProfilePicture, addFavHotel} from "./user.controller.js"
 import { getUserByIdValidator, deleteUserValidator, updatePasswordValidator, updateUserValidator , UpdateProfileValidator } from "../middlewares/user-validator.js"
 import { uploadProfilePicture } from "../middlewares/multer-uploads.js"
 import { validateJWT } from "../middlewares/validate-token.js"
@@ -176,5 +176,10 @@ router.patch(
     UpdateProfileValidator, 
     updateProfilePicture
 );
+
+router.patch(
+    "/addFavHotel/:uid",
+    addFavHotel
+)
 
 export default router;
