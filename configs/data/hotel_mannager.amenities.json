@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "6826a6c08e7e69613908a6a6"
+  },
+  "name": "Jacuzzi",
+  "description": "Acceso al jacuzzi del hotel durante el día",
+  "price": "30.00",
+  "status": true,
+  "__v": 0
+}]
