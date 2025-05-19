@@ -1,10 +1,14 @@
 import {body, param} from 'express-validator';
 import {handleErrors} from './handle-error.js';
 import {validationsFields} from './validatorsFields.js';
-
+import { deleteFileOnError } from './delete-file-error.js';
+import { validateJWT } from './validate-token.js';
+import { hasRoles } from './validate-role.js';
 
 
 export const createEventValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     body('name')
         .notEmpty()
         .withMessage('Name is required')
@@ -35,10 +39,13 @@ export const createEventValidator = [
         .isString()
         .withMessage('Place must be a string'),
         validationsFields,
-    handleErrors,
+        deleteFileOnError,
+        handleErrors
 ]
 
 export const updateEventValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     param('eid')
         .notEmpty()
         .withMessage('Event ID is required')
@@ -73,6 +80,8 @@ export const updateEventValidator = [
 ]
 
 export const deleteEventValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
     param('eid')
         .notEmpty()
         .withMessage('Event ID is required')
