@@ -32,9 +32,9 @@ const roomSchema = new Schema({
         ref: "Hotel",
         required: true
     },
-    preView:{
+    preView:[{
         type: String
-    },
+    }],
     status: {
         type: Boolean,
         default: true
