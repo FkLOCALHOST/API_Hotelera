@@ -40,6 +40,9 @@ const hotelSchema = new Schema({
         ref: 'Room',
         default: [],
     }],
+    imageHotel:{
+        type: String
+    },
     status: {
         type: Boolean,
         default: true
