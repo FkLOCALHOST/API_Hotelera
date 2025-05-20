@@ -1,6 +1,8 @@
 import Reservation from './reservation.model.js';
 import Room from "../room/room.model.js"
 import User from "../user/user.model.js"
+import Amenity from "../amenity/amenity.model.js"
+
 import { generateReservationPDF } from '../middlewares/receipt-generator.js';
 
 export const createReservation = async (req, res) => {
@@ -10,11 +12,25 @@ export const createReservation = async (req, res) => {
 
         const room = await Room.findById(reservation.room);
 
+        let AmenityPrices = [];
+
+        for (const element of room.amenity) {
+            const amenity = await Amenity.findById(element);
+            if (amenity) {
+                AmenityPrices.push(parseFloat(amenity.price));
+            } else {
+                console.warn(`Amenity con ID ${element} no encontrado`);
+            }
+        }
+
+        let priceAmenity = AmenityPrices.reduce((acc, price) => acc + price, 0);
+
         Promise.all([
             await Room.findByIdAndUpdate(reservation.room, {$push: {reservations: reservation._id}}, {new:true}),
             await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true})
+
         ])
-        generateReservationPDF(reservation,room);
+        generateReservationPDF(reservation,room,priceAmenity);
         return res.status(201).json({
             success: true,
             message: 'Reserva creada',
