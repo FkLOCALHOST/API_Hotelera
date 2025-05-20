@@ -15,7 +15,7 @@ export const createHotel = async (req, res) => {
         let imageHotel = null;
 
         if (req.file) {
-            const fullPath = path.join(req.filePath, req.file.filename); // Igual que en room
+            const fullPath = req.file.path;
             const result = await cloudinary.uploader.upload(fullPath, {
                 folder: "hotels"
             });
