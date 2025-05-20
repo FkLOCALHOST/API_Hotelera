@@ -1,15 +1,35 @@
 import Room from "./room.model.js"
 import Hotel from "../hotel/hotel.model.js"
-import Amenity from "../amenity/amenity.model.js"
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs/promises';
+import path from 'path';
+
+cloudinary.config({
+    cloud_name: 'djqjmyuoc',
+    api_key: '391147666643324',
+    api_secret: 'BzLcGiZftBZunt8647Dg2TnKNJs'
+});
+
 
 export const createRoom = async (req, res) => {
     try {
         const data = req.body;
-        let preView = req.file ? req.file.filename : null;
-        data.preView = preView
+        let preView = null;
+
+        if (req.file) {
+            const fullPath = path.join(req.filePath, req.file.filename);
+            const result = await cloudinary.uploader.upload(fullPath, {
+                folder: "rooms"
+            });
+            await fs.unlink(fullPath);
+            preView = result.secure_url;
+        }
+
+        data.preView = preView;
 
         const room = await Room.create(data);
-        await Hotel.findByIdAndUpdate(data.hotel,{$push: {rooms: room._id}}, {new: true})
+        await Hotel.findByIdAndUpdate(data.hotel, { $push: { rooms: room._id } }, { new: true });
+
         return res.status(201).json({
             message: "Room has been created",
             room
@@ -20,7 +40,7 @@ export const createRoom = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const getRoomById = async (req, res) => {
     try {
