@@ -46,7 +46,7 @@ export const getHotelById = async (req, res) => {
 
 export const getHotels = async (req, res) => {
     try {
-        const { limite = 5, desde = 0 } = req.query;
+        const { limite = 8, desde = 0 } = req.query;
         const query = { status: true };
 
         const [total, hotels] = await Promise.all([

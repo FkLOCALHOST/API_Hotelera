@@ -22,8 +22,8 @@ export const registerHotelValidator = [
 ];
 
 export const getHotelByIdValidator = [
-    validateJWT,
-    hasRoles("ADMIN_ROLE"),
+    // validateJWT,
+    // hasRoles("ADMIN_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(uidHotelExist),
     validationsFields,
