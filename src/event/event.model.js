@@ -35,6 +35,19 @@ const eventSchema = new Schema({
         default: null
 
     },
+    type:{
+        type: String,
+        enum: ["PUBLIC", "PRIVATE"],
+        default: "PRIVATE"
+    },
+    hotel:{
+        type: Schema.Types.ObjectId,
+        ref: "Hotel"
+    },
+    room:{
+        type: Schema.Types.ObjectId,
+        ref: "Room"
+    },
     status:{
         type: Boolean,
         default: true

@@ -47,6 +47,11 @@ const hotelSchema = new Schema({
         type: Boolean,
         default: true
     },
+    hotelEvents:[{
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+        default: []
+    }],
     registerDate: {
         type: Date,
         default: new Date(),

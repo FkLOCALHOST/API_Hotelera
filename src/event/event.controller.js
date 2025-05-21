@@ -1,27 +1,46 @@
 import Event from './event.model.js'
+import Hotel from "../hotel/hotel.model.js"
+import Room from "../room/room.model.js"
+import fs from "fs/promises"
+import { v2 as cloudinary } from 'cloudinary';
 
 export const createEvent = async (req, res) => {
-    try{
-        const data = req.body
-        let image = req.file ? req.file.filename : null
-        data.image = image
+    try {
+        const data = req.body;
+        let imageUrl = null;
 
-        const event = await Event.create(data)
+        if (req.file) {
+            const fullPath = req.file.path;
+            const result = await cloudinary.uploader.upload(fullPath, {
+                folder: "events"
+            });
+            await fs.unlink(fullPath);
+            imageUrl = result.secure_url;
+        }
+
+        data.image = imageUrl;
+
+        const event = await Event.create(data);
+
+        await Promise.all([
+            Hotel.findByIdAndUpdate(data.hotel, { $push: { hotelEvents: event._id } }, { new: true }),
+            Room.findByIdAndUpdate(data.room, { $push: { roomEvent: event._id } }, { new: true }),
+        ]);
 
         return res.status(200).json({
             success: true,
-            message: 'Event created',
+            message: 'Evento creado exitosamente',
             data: event
-        })
+        });
 
-    }catch(error){
+    } catch (error) {
         return res.status(500).json({
             success: false,
-            message: 'Error creating event',
+            message: 'Error al crear el evento',
             error: error.message
-        })
+        });
     }
-}
+};
 
 export const getEvents = async (req, res) => {
     try {
