@@ -35,6 +35,11 @@ const roomSchema = new Schema({
     preView:[{
         type: String
     }],
+    roomEvent:[{
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+        default: []
+    }],
     status: {
         type: Boolean,
         default: true

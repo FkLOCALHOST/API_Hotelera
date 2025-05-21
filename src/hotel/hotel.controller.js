@@ -1,7 +1,6 @@
 import Hotel from './hotel.model.js';
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs/promises';
-import path from 'path';
 
 cloudinary.config({
     cloud_name: 'djqjmyuoc',
