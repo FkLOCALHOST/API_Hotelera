@@ -59,6 +59,10 @@ const userSchema = Schema({
         ref: "Reservation",
         default: []
     }],
+    favHotel:[{
+        type: String,
+        default:[]
+    }],
     status: {
         type: Boolean,
         default: true,

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const generateReservationPDF = async (reservation,room) => {
+export const generateReservationPDF = async (reservation,room,priceAmenity) => {
     try {
         const templatePath = path.join(__dirname, '..', '..', 'public', 'docs', 'Factura_A4_para_empresa_hotelera.pdf');
         const outputPathDir = path.join(__dirname, '..', '..', 'public', 'docs', 'receipt');
@@ -36,16 +36,16 @@ export const generateReservationPDF = async (reservation,room) => {
             color: textColor
         });
 
-        firstPage.drawText(`${room.price}`, {
-            x: 390,
+        firstPage.drawText(`$ ${room.price}.00`, {
+            x: 380,
             y: height - 439,
             size: 12,
             font,
             color: textColor
         });
 
-        firstPage.drawText(`${room.price}`, {
-            x: 500,
+        firstPage.drawText(`$ ${room.price}.00`, {
+            x: 490,
             y: height - 439,
             size: 12,
             font,
@@ -63,6 +63,30 @@ export const generateReservationPDF = async (reservation,room) => {
         firstPage.drawText(`${room.amenity.length}`, {
             x: 297,
             y: height - 530,
+            size: 12,
+            font,
+            color: textColor
+        });
+
+        firstPage.drawText(`$ ${priceAmenity}.00`, {
+            x: 490,
+            y: height - 530,
+            size: 12,
+            font,
+            color: textColor
+        });
+
+        firstPage.drawText(`$ ${priceAmenity}.00`, {
+            x: 380,
+            y: height - 530,
+            size: 12,
+            font,
+            color: textColor
+        });
+
+        firstPage.drawText(`$ ${priceAmenity + parseFloat(room.price)}.00`, {
+            x: 380,
+            y: height - 570,
             size: 12,
             font,
             color: textColor

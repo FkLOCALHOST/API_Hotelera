@@ -1,15 +1,36 @@
 import Room from "./room.model.js"
 import Hotel from "../hotel/hotel.model.js"
-import Amenity from "../amenity/amenity.model.js"
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs/promises';
+import path from 'path';
+
+cloudinary.config({
+    cloud_name: 'djqjmyuoc',
+    api_key: '391147666643324',
+    api_secret: 'BzLcGiZftBZunt8647Dg2TnKNJs'
+});
 
 export const createRoom = async (req, res) => {
     try {
         const data = req.body;
-        let preView = req.file ? req.file.filename : null;
-        data.preView = preView
+        let preView = [];
+
+        if (req.files && req.files.length > 0) {
+            for (const file of req.files) {
+                const fullPath = path.join(file.destination, file.filename);
+                const result = await cloudinary.uploader.upload(fullPath, {
+                    folder: "rooms"
+                });
+                await fs.unlink(fullPath);
+                preView.push(result.secure_url);
+            }
+        }
+
+        data.preView = preView;
 
         const room = await Room.create(data);
-        await Hotel.findByIdAndUpdate(data.hotel,{$push: {rooms: room._id}}, {new: true})
+        await Hotel.findByIdAndUpdate(data.hotel, { $push: { rooms: room._id } }, { new: true });
+
         return res.status(201).json({
             message: "Room has been created",
             room
@@ -20,7 +41,8 @@ export const createRoom = async (req, res) => {
             error: err.message
         });
     }
-}
+};
+
 
 export const getRoomById = async (req, res) => {
     try {
@@ -143,6 +165,49 @@ export const addAmenity = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error updating room",
+            error: error.message
+        });
+    }
+};
+
+export const uploadRoomImages = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const room = await Room.findById(uid);
+
+        if (!room) {
+            return res.status(404).json({
+                success: false,
+                message: "Habitación no encontrada"
+            });
+        }
+
+        let newImages = [];
+
+        if (req.files && req.files.length > 0) {
+            for (const file of req.files) {
+                const fullPath = path.join(file.destination, file.filename);
+                const result = await cloudinary.uploader.upload(fullPath, {
+                    folder: "rooms"
+                });
+                await fs.unlink(fullPath);
+                newImages.push(result.secure_url);
+            }
+        }
+
+        room.preView.push(...newImages);
+        await room.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Imágenes agregadas exitosamente",
+            images: room.preView
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al subir imágenes",
             error: error.message
         });
     }

@@ -831,14 +831,14 @@
 			"name": "Hotel",
 			"item": [
 				{
-					"name": "Register Hotel",
+					"name": "Create Hotel",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3MTIxNDEsImV4cCI6MTc0NzcxNTc0MX0.hcCfFLAMdUbGSsjTdZKrvZUMoahFW0I9LqokHL-CJsI",
 									"type": "string"
 								}
 							]
@@ -846,13 +846,54 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Hotel El Paraíso\",\r\n  \"email\": \"contacto@elparaiso.com\",\r\n  \"phone\": \"50212345678\",\r\n  \"addres\": \"Calle Real, Zona 1, Guatemala\",\r\n  \"category\": \"4 STARS\",\r\n  \"price\": 1200,\r\n  \"description\": \"Un hotel cómodo con vista al lago.\",\r\n  \"department\": \"Guatemala\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Hotel Las Brisas",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "contacto@lasbrisas.com",
+									"type": "text"
+								},
+								{
+									"key": "imageHotel",
+									"type": "file",
+									"src": "/C:/Users/javie/Downloads/test.jpeg"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "addres",
+									"value": "Calle Falsa 123",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "4 STARS",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hotel con vistas al mar, ideal para vacaciones.",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "Escuintla",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/hotel/createHotel",
@@ -1090,7 +1131,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3ODQxMjAsImV4cCI6MTc0Nzc4NzcyMH0.gNo7VevsrYTur6ooPldiLerLMqgFo56rjJCWWA43QAw",
 									"type": "string"
 								}
 							]
@@ -1102,22 +1143,22 @@
 							"formdata": [
 								{
 									"key": "number",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "200",
+									"value": "400",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Cuarto Base",
+									"value": "Cuarto Mediano",
 									"type": "text"
 								},
 								{
 									"key": "capacity",
-									"value": "2",
+									"value": "4",
 									"type": "text"
 								},
 								{
@@ -1128,7 +1169,7 @@
 								{
 									"key": "preView",
 									"type": "file",
-									"src": "/C:/Users/javie/Desktop/140206845.jpeg"
+									"src": "/C:/Users/javie/Downloads/Imagen de WhatsApp 2025-05-19 a las 18.32.26_77fcc72b.jpg"
 								}
 							]
 						},
@@ -1205,7 +1246,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MjMzMjksImV4cCI6MTc0NzYyNjkyOX0.LMbOPl2T6OLSKWIXqwpkUcLhL6TeM_3i6kHKev2CSV8",
 									"type": "string"
 								}
 							]
@@ -1237,6 +1278,58 @@
 								{
 									"key": "uid",
 									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add image Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3MDEyNDAsImV4cCI6MTc0NzcwNDg0MH0.G3owh0YkfG5xWpcXmFoyWRi7GMZxQc15aY_QZjWUW48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "newImages",
+									"type": "file",
+									"src": "/C:/Users/javie/Downloads/Imagen de WhatsApp 2025-05-19 a las 18.32.26_77fcc72b.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/uploadRoomImage/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"uploadRoomImage",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682d132ae05b30c8d4b8a207"
 								}
 							]
 						}
@@ -1421,57 +1514,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Add Amenity",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"amenities\": [\"6826a6c08e7e69613908a6a6\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/addAmenity/:uid",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3005",
-							"path": [
-								"hotelManagerSystem",
-								"v1",
-								"room",
-								"addAmenity",
-								":uid"
-							],
-							"variable": [
-								{
-									"key": "uid",
-									"value": "68292ce151884ac3f5d9d117"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1486,7 +1528,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MDY0MTUsImV4cCI6MTc0NzYxMDAxNX0.lfYqE6-4T-y9_bu2GSkfb4ea7A4RR5mC8_v-va9TH5A",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MjMzMjksImV4cCI6MTc0NzYyNjkyOX0.LMbOPl2T6OLSKWIXqwpkUcLhL6TeM_3i6kHKev2CSV8",
 									"type": "string"
 								}
 							]
@@ -1580,7 +1622,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MTkwNjUsImV4cCI6MTc0NzYyMjY2NX0.0Z7m5jTWk0a_j7_QRRqt6NebeBdDrl0n8-WWZuJ4XhQ",
 									"type": "string"
 								}
 							]
@@ -1719,57 +1761,6 @@
 								{
 									"key": "uid",
 									"value": "682a546d7a682b8ce5da79d8"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Complete Reservation",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc2MDQ1NjIsImV4cCI6MTc0NzYwODE2Mn0.-5QlYybfX_VRnf0C1Fxw0DuxuXwWRLDV6fBB29oCkM8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"user\": \"68255e6a5e11caa38b7cc471\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\",\r\n  \"status\": \"COMPLETED\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/completeReservation/:uid",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3005",
-							"path": [
-								"hotelManagerSystem",
-								"v1",
-								"reservation",
-								"completeReservation",
-								":uid"
-							],
-							"variable": [
-								{
-									"key": "uid",
-									"value": "682a5e019c9a8aae483e56a2"
 								}
 							]
 						}

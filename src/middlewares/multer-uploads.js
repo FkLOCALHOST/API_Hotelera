@@ -10,26 +10,26 @@ const createMulterConfig = (destinationFolder) => {
     return multer({
         storage: multer.diskStorage({
             destination: (req, file, cb) => {
-                const fullPath = join(CURRENT_DIR, destinationFolder)
-                req.filePath = fullPath
-                cb(null, fullPath)
+                const fullPath = join(CURRENT_DIR, destinationFolder);
+                cb(null, fullPath); 
             },
             filename: (req, file, cb) => {
-                const fileExtension = extname(file.originalname)
-                const fileName = file.originalname.split(fileExtension)[0]
-                cb(null, `${fileName}-${Date.now()}${fileExtension}`)
-            }   
+                const fileExtension = extname(file.originalname);
+                const fileName = file.originalname.split(fileExtension)[0];
+                cb(null, `${fileName}-${Date.now()}${fileExtension}`);
+            }
         }),
-        fileFilter:(req, file, cb) => {
-            if(MIMETYPES.includes(file.mimetype)) cb(null,true)
-            else cb(new Error(`Solamente se aceptan archivos de los siguients tipos: ${MIMETYPES.join(" ")}`))
+        fileFilter: (req, file, cb) => {
+            if (MIMETYPES.includes(file.mimetype)) cb(null, true);
+            else cb(new Error(`Solo se permiten archivos: ${MIMETYPES.join(", ")}`));
         },
-        limits:{
+        limits: {
             fileSize: MAX_SIZE
         }
-    })
-}
+    });
+};
 
 export const uploadProfilePicture = createMulterConfig("../../public/uploads/profile")
 export const uploadEventPicture = createMulterConfig("../../public/uploads/events")
 export const uploadRoomPicture = createMulterConfig("../../public/uploads/rooms")
+export const uploadHotelPicture = createMulterConfig("../../public/uploads/hotel")

@@ -1,13 +1,16 @@
 import { Router } from "express";
 import { createHotel, getHotels, getHotelById, updateHotel, deleteHotel, searchHotels } from "./hotel.controller.js";
 import { registerHotelValidator, getHotelByIdValidator, updateHotelValidator, deleteHotelValidator, searchHotelsValidator } from "../middlewares/hotel-validator.js";
+import { uploadHotelPicture } from "../middlewares/multer-uploads.js";
+
 
 const router = Router();
 
 router.post(
     "/createHotel",
-    registerHotelValidator,
-    createHotel
+    uploadHotelPicture.single("imageHotel"),   
+    registerHotelValidator,               
+    createHotel                         
 );
 
 router.get(

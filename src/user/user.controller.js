@@ -189,3 +189,24 @@ export const updateProfilePicture = async (req, res) => {
         });
     }
 };
+
+export const addFavHotel = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const {favHotel}  = req.body;
+
+        const user = await User.findByIdAndUpdate(uid,{$addToSet: {favHotel: favHotel}}, { new: true });
+
+        res.status(200).json({
+            success: true,
+            msg: 'Hotel colocado como favorito',
+            user,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al actualizar usuario',
+            error: err.message
+        });
+    }
+}

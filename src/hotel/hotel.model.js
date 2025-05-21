@@ -40,10 +40,18 @@ const hotelSchema = new Schema({
         ref: 'Room',
         default: [],
     }],
+    imageHotel:{
+        type: String
+    },
     status: {
         type: Boolean,
         default: true
     },
+    hotelEvents:[{
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+        default: []
+    }],
     registerDate: {
         type: Date,
         default: new Date(),

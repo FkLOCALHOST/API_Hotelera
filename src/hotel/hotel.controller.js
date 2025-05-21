@@ -1,8 +1,27 @@
 import Hotel from './hotel.model.js';
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs/promises';
+
+cloudinary.config({
+    cloud_name: 'djqjmyuoc',
+    api_key: '391147666643324',
+    api_secret: 'BzLcGiZftBZunt8647Dg2TnKNJs'
+});
 
 export const createHotel = async (req, res) => {
     try {
         const data = req.body;
+        let imageHotel = null;
+
+        if (req.file) {
+            const fullPath = req.file.path;
+            const result = await cloudinary.uploader.upload(fullPath, {
+                folder: "hotels"
+            });
+            await fs.unlink(fullPath);
+            imageHotel = result.secure_url;
+        }
+        data.imageHotel = imageHotel;
         const hotel = await Hotel.create(data);
 
         return res.status(201).json({
