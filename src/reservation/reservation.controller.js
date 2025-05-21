@@ -1,7 +1,9 @@
 import Reservation from './reservation.model.js';
 import Room from "../room/room.model.js"
 import User from "../user/user.model.js"
-import Amenity from "../amenity/amenity.model.js"
+import Amenity from "../amenity/amenity.model.js";
+import Event from "../event/event.model.js";
+import Hotel from "../hotel/hotel.model.js";
 
 import { generateReservationPDF } from '../middlewares/receipt-generator.js';
 
@@ -28,7 +30,7 @@ export const createReservation = async (req, res) => {
         Promise.all([
             await Room.findByIdAndUpdate(reservation.room, {$push: {reservations: reservation._id}}, {new:true}),
             await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true}),
-            await User.findByIdAndUpdate(reservation.user, {$push: {historyOfReservations: uid}}, {new:true})
+            await User.findByIdAndUpdate(reservation.user, {$push: {historyOfReservations: reservation._id}}, {new:true})
 
         ])
         generateReservationPDF(reservation,room,priceAmenity);
@@ -153,6 +155,59 @@ export const cancelReservation = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: 'Error al cancelar la reserva',
+            error: error.message
+        });
+    }
+};
+
+export const searchReservations = async (req, res) => {
+    try {
+        const { limite = 5, desde = 0, search = "" } = req.query;
+        const skip = Number(desde);
+        const limit = Number(limite);
+        const regex = new RegExp(search, 'i');
+
+        const pipeline = [
+            { $match: { status: { $ne: 'CANCELLED' } } },
+            { $lookup: { from: Room.collection.name, localField: 'room', foreignField: '_id', as: 'room' } },
+            { $unwind: '$room' },
+            { $lookup: { from: Hotel.collection.name, localField: 'room.hotel', foreignField: '_id', as: 'hotel' } },
+            { $unwind: '$hotel' },
+            { $lookup: {
+                from: Event.collection.name,
+                localField: 'room.roomEvent',
+                foreignField: '_id',
+                as: 'events'
+            } }
+        ];
+        if (search) {
+            pipeline.push({
+                $match: { $or: [
+                    { 'hotel.name': regex },
+                    { 'hotel.department': regex },
+                    { 'events.name': regex },
+                    { 'events.place': regex }
+                ] }
+            });
+        }
+        pipeline.push({ $facet: {
+            total: [ { $count: 'count' } ],
+            data: [ { $skip: skip }, { $limit: limit } ]
+        } });
+
+        const result = await Reservation.aggregate(pipeline);
+        const total = result[0].total[0]?.count || 0;
+        const reservations = result[0].data;
+
+        return res.status(200).json({
+            success: true,
+            total,
+            reservations
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error al buscar reservas',
             error: error.message
         });
     }
