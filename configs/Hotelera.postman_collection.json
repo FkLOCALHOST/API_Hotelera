@@ -136,6 +136,16 @@
 				{
 					"name": "createEvent",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3ODg4OTMsImV4cCI6MTc0Nzc5MjQ5M30.9AndI7IUmtveTlAM3XCls-pbCOMHV45eCCXxBnjmUys",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -169,8 +179,22 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/CompuFire/Downloads/png-transparent-computer-icons-event-management-business-computer-software-business-text-people-innovation.png",
-									"disabled": true
+									"src": "/C:/Users/javie/Desktop/140206845.jpeg"
+								},
+								{
+									"key": "type",
+									"value": "PRIVATE",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6826aceeb33f7a217a4c710f",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "682d1c647e2338331c4df1ec",
+									"type": "text"
 								}
 							]
 						},
@@ -197,6 +221,16 @@
 				{
 					"name": "getEvents",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3ODQxMjAsImV4cCI6MTc0Nzc4NzcyMH0.gNo7VevsrYTur6ooPldiLerLMqgFo56rjJCWWA43QAw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -471,6 +505,57 @@
 					"response": []
 				},
 				{
+					"name": "Agregar Hotel Favorito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc4Njc5NDUsImV4cCI6MTc0Nzg3MTU0NX0.N2BTnNto0Wh7ci_g0Cqgy38e_4SKFycc5diI9I0v5r8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"favHotel\": \"6826aceeb33f7a217a4c710f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/user/addFavHotel/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"user",
+								"addFavHotel",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a5b8131c4cd18b7f23cc8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Actualizar Foto de Perfil",
 					"request": {
 						"auth": {
@@ -567,6 +652,57 @@
 								{
 									"key": "uid",
 									"value": "67ad2db8c67b477e42011a9f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Hotel Favorito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc4Njc5NDUsImV4cCI6MTc0Nzg3MTU0NX0.N2BTnNto0Wh7ci_g0Cqgy38e_4SKFycc5diI9I0v5r8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"favHotel\": \"6826aceeb33f7a217a4c710f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/user/addFavHotel/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"user",
+								"addFavHotel",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682a5b8131c4cd18b7f23cc8"
 								}
 							]
 						}
@@ -838,7 +974,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3MTIxNDEsImV4cCI6MTc0NzcxNTc0MX0.hcCfFLAMdUbGSsjTdZKrvZUMoahFW0I9LqokHL-CJsI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3ODQxMjAsImV4cCI6MTc0Nzc4NzcyMH0.gNo7VevsrYTur6ooPldiLerLMqgFo56rjJCWWA43QAw",
 									"type": "string"
 								}
 							]
@@ -850,7 +986,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Hotel Las Brisas",
+									"value": "Hotel Los Wbos",
 									"type": "text"
 								},
 								{
@@ -973,7 +1109,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3OTEwMjcsImV4cCI6MTc0Nzc5NDYyN30.m7e9NVLVd2IoaoXE6bE3AzeiQqHKAz7j7eaMjG3SDVU",
 									"type": "string"
 								}
 							]
@@ -1131,7 +1267,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3ODQxMjAsImV4cCI6MTc0Nzc4NzcyMH0.gNo7VevsrYTur6ooPldiLerLMqgFo56rjJCWWA43QAw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3OTEwMjcsImV4cCI6MTc0Nzc5NDYyN30.m7e9NVLVd2IoaoXE6bE3AzeiQqHKAz7j7eaMjG3SDVU",
 									"type": "string"
 								}
 							]
@@ -1204,7 +1340,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDc1Mjg1MzIsImV4cCI6MTc0NzUzMjEzMn0.bTNueE8oAPJ0A3-9sIsMyPNU9tNb76KEJPLiabNwqL8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3OTEwMjcsImV4cCI6MTc0Nzc5NDYyN30.m7e9NVLVd2IoaoXE6bE3AzeiQqHKAz7j7eaMjG3SDVU",
 									"type": "string"
 								}
 							]

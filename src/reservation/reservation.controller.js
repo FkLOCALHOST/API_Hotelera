@@ -27,7 +27,8 @@ export const createReservation = async (req, res) => {
 
         Promise.all([
             await Room.findByIdAndUpdate(reservation.room, {$push: {reservations: reservation._id}}, {new:true}),
-            await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true})
+            await User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id}}, {new:true}),
+            await User.findByIdAndUpdate(reservation.user, {$push: {historyOfReservations: uid}}, {new:true})
 
         ])
         generateReservationPDF(reservation,room,priceAmenity);
@@ -76,7 +77,6 @@ export const completeReservation = async (req, res) => {
         const reservation = await Reservation.findById(uid);
 
         await Reservation.findByIdAndUpdate(uid, {status: "COMPLETED"}, {new:true});
-        await User.findByIdAndUpdate(reservation.user, {$push: {historyOfReservations: uid}}, {new:true});
 
         return res.status(200).json({
             success: true,
