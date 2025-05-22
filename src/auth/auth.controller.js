@@ -41,7 +41,7 @@ export const login = async (req, res) => {
 
         const validPassword = await verify(user.password, password)
 
-        if(!validPassword){
+        if(!validPassword){ 
             return res.status(400).json({
                 message: "Crendenciales inválidas",
                 error: "Contraseña incorrecta"
@@ -54,6 +54,7 @@ export const login = async (req, res) => {
             message: "Login successful",
             userDetails: {
                 token: token,
+                role: user.role,
                 profilePicture: user.profilePicture
             }
         })
