@@ -1,4 +1,4 @@
-import { body, param } from "express-validator";
+import { body, param, query } from "express-validator";
 import { uidHotelExist, uidRoomExist } from "../helpers/db-validators.js";
 import { validationsFields } from "./validatorsFields.js";
 import { validateJWT } from "./validate-token.js";
@@ -40,6 +40,12 @@ export const updateRoomValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
     param("uid", "No es un ID válido").isMongoId().custom(uidRoomExist),
+    validationsFields,
+    catchErrors
+];
+
+export const searchRoomsValidator = [
+    query('search').optional().isString().withMessage('El término de búsqueda debe ser texto'),
     validationsFields,
     catchErrors
 ];
