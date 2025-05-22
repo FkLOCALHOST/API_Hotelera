@@ -1,5 +1,7 @@
 import Room from "./room.model.js"
 import Hotel from "../hotel/hotel.model.js"
+import Amenity from '../amenity/amenity.model.js'
+import Event from '../event/event.model.js'
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs/promises';
 import path from 'path';
@@ -212,3 +214,72 @@ export const uploadRoomImages = async (req, res) => {
         });
     }
 };
+
+export const searchRooms = async (req, res) => {
+    try {
+        const { desde = 0, limite = 5, search = '' } = req.query
+        const skip  = Number(desde)
+        const limit = Number(limite)
+        const regex = new RegExp(search, 'i')
+
+        const pipeline = [
+            { $match: { status: true } },
+            { $lookup: {
+                from: Hotel.collection.name,
+                localField: 'hotel',
+                foreignField: '_id',
+                as: 'hotel'
+            }},
+            { $unwind: '$hotel' },
+            { $lookup: {
+                from: Amenity.collection.name,
+                localField: 'amenity',
+                foreignField: '_id',
+                as: 'amenities'
+            }},
+            { $lookup: {
+                from: Event.collection.name,
+                localField: 'roomEvent',
+                foreignField: '_id',
+                as: 'events'
+            }}
+        ]
+
+        if (search) {
+            pipeline.push({
+                $match: {
+                    $or: [
+                        { number:    regex },
+                        { description: regex },
+                        { capacity:    regex },
+                        { price:       regex },
+                        { 'hotel.name':       regex },
+                        { 'hotel.department': regex },
+                        { 'amenities.name':   regex },
+                        { 'events.name':      regex },
+                        { 'events.place':     regex }
+                    ]
+                }
+            })
+        }
+
+        pipeline.push({
+            $facet: {
+                total: [ { $count: 'count' } ],
+                data:  [ { $skip: skip }, { $limit: limit } ]
+            }
+        })
+
+        const agg = await Room.aggregate(pipeline)
+        const total = agg[0].total[0]?.count || 0
+        const rooms = agg[0].data
+
+        res.json({ success: true, total, rooms })
+    } catch(error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error buscando habitaciones',
+            error: error.message
+        })
+    }
+}

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import {createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation} from "./reservation.controller.js";
-import {registerReservationValidator, getReservationByIdValidator, updateReservationValidator, deleteReservationValidator} from "../middlewares/reservation-validator.js";
+import {createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation, searchReservations} from "./reservation.controller.js";
+import {registerReservationValidator, getReservationByIdValidator, updateReservationValidator, deleteReservationValidator, searchReservationsValidator} from "../middlewares/reservation-validator.js";
 
 const router = Router();
 
@@ -36,6 +36,12 @@ router.patch(
 router.patch(
     "/completeReservation/:uid",
     completeReservation
-)
+);
+
+router.get(
+    "/searchReservations",
+    searchReservationsValidator,
+    searchReservations
+);
 
 export default router;
