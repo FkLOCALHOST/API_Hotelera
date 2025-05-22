@@ -1,4 +1,4 @@
-import { body, param } from "express-validator";
+import { body, param, query } from "express-validator";
 import { uidReservationExist } from "../helpers/db-validators.js";
 import { validationsFields } from "./validatorsFields.js";
 import { validateJWT } from "./validate-token.js";
@@ -42,6 +42,12 @@ export const updateReservationValidator = [
     body("checkOut").optional().isISO8601().withMessage("Fecha inválida"),
     body("room").optional().not().isEmpty().withMessage("El campo room no puede ir vacío"),
     body("status").optional().isIn(["PENDING", "COMPLETED", "CANCELLED"]),
+    validationsFields,
+    catchErrors
+];
+
+export const searchReservationsValidator = [
+    query('search').optional().isString().withMessage('El término de búsqueda debe ser texto'),
     validationsFields,
     catchErrors
 ];

@@ -195,6 +195,8 @@ export const addFavHotel = async (req, res) => {
         const { uid } = req.params;
         const {favHotel}  = req.body;
 
+        console.log("UID recibido:", uid, "Hotel recibido:", favHotel);
+
         const user = await User.findByIdAndUpdate(uid,{$addToSet: {favHotel: favHotel}}, { new: true });
 
         res.status(200).json({
