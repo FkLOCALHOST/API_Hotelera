@@ -26,41 +26,46 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    const { email, username, password } = req.body
-    try{
-        const user = await User.findOne({
-            $or:[{email: email}, {username: username}]
-        })
-
-        if(!user){
-            return res.status(400).json({
-                message: "Crendenciales inválidas",
-                error:"No existe el usuario o correo ingresado"
-            })
+    const { email, username, password } = req.body;
+    try {
+        let user = null;
+        if (email) {
+            user = await User.findOne({ email });
+        } else if (username) {
+            user = await User.findOne({ username });
         }
 
-        const validPassword = await verify(user.password, password)
+        if (!user) {
+            return res.status(400).json({
+                message: "Crendenciales inválidas",
+                error: "No existe el usuario o correo ingresado"
+            });
+        }
 
-        if(!validPassword){
+        const validPassword = await verify(user.password, password);
+
+        if (!validPassword) {
             return res.status(400).json({
                 message: "Crendenciales inválidas",
                 error: "Contraseña incorrecta"
-            })
+            });
         }
 
-        const token = await generateJWT(user.id)
+        const token = await generateJWT(user.id);
 
         return res.status(200).json({
             message: "Login successful",
             userDetails: {
                 token: token,
-                profilePicture: user.profilePicture
+                profilePicture: user.profilePicture,
+                _id: user._id,
+                favHotel: user.favHotel
             }
-        })
-    }catch(err){
+        });
+    } catch (err) {
         return res.status(500).json({
             message: "login failed, server error",
             error: err.message
-        })
+        });
     }
 }
