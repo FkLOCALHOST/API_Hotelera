@@ -65,3 +65,9 @@ export const UpdateProfileValidator =[
     validationsFields,
     catchErrors
 ];
+
+export const GetUserLoggedValidator = [
+    validateJWT,
+    validationsFields,
+    catchErrors
+]
