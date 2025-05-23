@@ -212,3 +212,26 @@ export const addFavHotel = async (req, res) => {
         });
     }
 }
+
+export const removeFavHotel = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const {favHotel}  = req.body;
+
+        console.log("UID recibido:", uid, "Hotel recibido:", favHotel);
+
+        const user = await User.findByIdAndUpdate(uid,{$pull: {favHotel: favHotel}}, { new: true });
+
+        res.status(200).json({
+            success: true,
+            msg: 'Hotel eliminado de favoritos',
+            user,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al actualizar usuario',
+            error: err.message
+        });
+    }
+}
