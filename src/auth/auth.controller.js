@@ -53,20 +53,19 @@ export const login = async (req, res) => {
 
     const token = await generateJWT(user.id);
 
-    return res.status(200).json({
-      message: "Login successful",
-      userDetails: {
-        token: token,
-        role: user.role,
-        profilePicture: user.profilePicture,
-        _id: user._id,
-        favHotel: user.favHotel
-      },
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: "login failed, server error",
-      error: err.message,
-    });
-  }
-};
+        return res.status(200).json({
+            message: "Login successful",
+            userDetails: {
+                token: token,
+                role: user.role,
+                profilePicture: user.profilePicture
+            }
+        })
+    }catch(err){
+        return res.status(500).json({
+            message: "login failed, server error",
+            error: err.message
+        })
+    }
+}
+
