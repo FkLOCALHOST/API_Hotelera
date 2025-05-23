@@ -24,7 +24,7 @@ export const loginValidator = [
 
 export const getUserByIdValidator = [
     validateJWT,
-    hasRoles("ADMIN_ROLE"),
+    hasRoles("ADMIN_ROLE, USER_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(uidExist),
     validationsFields,
