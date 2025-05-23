@@ -59,6 +59,8 @@ export const login = async (req, res) => {
         token: token,
         role: user.role,
         profilePicture: user.profilePicture,
+        _id: user._id,
+        favHotel: user.favHotel
       },
     });
   } catch (err) {
