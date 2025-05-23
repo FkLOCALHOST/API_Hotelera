@@ -5,6 +5,27 @@ import { uploadProfilePicture } from '../middlewares/multer-uploads.js';
 
 const router = Router();
 
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Registrar un nuevo usuario
+ *     tags:
+ *       - Auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               profilePicture:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Usuario registrado exitosamente
+ */
 router.post(
     "/register", 
     uploadProfilePicture.single("profilePicture"),
@@ -12,6 +33,25 @@ router.post(
     register
 );
 
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Iniciar sesión de usuario
+ *     tags:
+ *       - Auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *     responses:
+ *       200:
+ *         description: Usuario autenticado exitosamente
+ *       401:
+ *         description: Credenciales inválidas
+ */
 router.post(
     "/login",
     loginValidator,

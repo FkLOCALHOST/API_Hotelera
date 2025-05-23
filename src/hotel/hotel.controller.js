@@ -10,6 +10,7 @@ cloudinary.config({
 
 export const createHotel = async (req, res) => {
     try {
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
         const data = req.body;
         let imageHotel = null;
 
@@ -33,7 +34,8 @@ export const createHotel = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: 'Error al crear el hotel',
-            error: error.message
+            data,
+            error: error.message || JSON.stringify(error)
         });
     }
 };
@@ -65,7 +67,7 @@ export const getHotelById = async (req, res) => {
 
 export const getHotels = async (req, res) => {
     try {
-        const { limite = 5, desde = 0 } = req.query;
+        const { limite = 8, desde = 0 } = req.query;
         const query = { status: true };
 
         const [total, hotels] = await Promise.all([
