@@ -11,6 +11,9 @@ import userRoutes from "../src/user/user.routes.js"
 import amenityRoutes from "../src/amenity/amenity.routes.js"
 import hotelRoutes from "../src/hotel/hotel.routes.js"
 import { swaggerDocs, swaggerUi } from "./swagger.js"
+import roomRoutes from "../src/room/room.routes.js"
+import reservationRoutes from "../src/reservation/reservation.routes.js"
+
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended:false}));
@@ -28,6 +31,8 @@ const routes = (app) =>{
     app.use("/hotelManagerSystem/v1/amenity", amenityRoutes);
     app.use("/hotelManagerSystem/v1/hotel", hotelRoutes);
     app.use("/hotelManagerSystem/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+    app.use("/hotelManagerSystem/v1/room", roomRoutes);
+    app.use("/hotelManagerSystem/v1/reservation", reservationRoutes);
 }
 
 

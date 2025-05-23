@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "68268f9ecb0b56ddc36c94e4"
+  },
+  "name": "dsdfds",
+  "description": "fddgfdgdsdsvdfvfd",
+  "price": 4546,
+  "date": {
+    "$date": "2025-06-06T00:00:00.000Z"
+  },
+  "place": "gfdgfd",
+  "image": null,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-05-16T01:06:38.388Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-16T01:06:38.388Z"
+  }
+}]
