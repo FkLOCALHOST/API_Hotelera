@@ -657,57 +657,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Agregar Hotel Favorito",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc4Njc5NDUsImV4cCI6MTc0Nzg3MTU0NX0.N2BTnNto0Wh7ci_g0Cqgy38e_4SKFycc5diI9I0v5r8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"favHotel\": \"6826aceeb33f7a217a4c710f\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/user/addFavHotel/:uid",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3005",
-							"path": [
-								"hotelManagerSystem",
-								"v1",
-								"user",
-								"addFavHotel",
-								":uid"
-							],
-							"variable": [
-								{
-									"key": "uid",
-									"value": "682a5b8131c4cd18b7f23cc8"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -722,7 +671,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
 									"type": "string"
 								}
 							]
@@ -731,7 +680,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Piscina\",\r\n  \"description\": \"Acceso a la piscina del hotel durante el día\",\r\n  \"price\": \"15.00\"\r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"Gym\",\r\n  \"description\": \"Acceso al gym del hotel durante el día\",\r\n  \"price\": \"70.00\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -769,7 +718,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
 									"type": "string"
 								}
 							]
@@ -1062,7 +1011,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODI1NWU2YTVlMTFjYWEzOGI3Y2M0NzEiLCJpYXQiOjE3NDczNjMyMTIsImV4cCI6MTc0NzM2NjgxMn0.FcKRS9GnCBZBThksLw5ON3Qf8rcUHuDzPbvh7d5eYg4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc4NzA2ODUsImV4cCI6MTc0Nzg3NDI4NX0.bTB7OogEnhM0trTaGWo6BJgFoFFIUPkWvmgJwSUHDak",
 									"type": "string"
 								}
 							]
@@ -1340,7 +1289,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc3OTEwMjcsImV4cCI6MTc0Nzc5NDYyN30.m7e9NVLVd2IoaoXE6bE3AzeiQqHKAz7j7eaMjG3SDVU",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc4NzA2ODUsImV4cCI6MTc0Nzg3NDI4NX0.bTB7OogEnhM0trTaGWo6BJgFoFFIUPkWvmgJwSUHDak",
 									"type": "string"
 								}
 							]
@@ -1414,6 +1363,60 @@
 								{
 									"key": "uid",
 									"value": "68292ce151884ac3f5d9d117"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify avalibility",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-06-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/verifyRoom/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"verifyRoom",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682fc978d31b962f371812a0"
 								}
 							]
 						}
@@ -1650,6 +1653,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Verify avalibility",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-06-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/verifyRoom/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"verifyRoom",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682fc978d31b962f371812a0"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1664,7 +1721,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MjMzMjksImV4cCI6MTc0NzYyNjkyOX0.LMbOPl2T6OLSKWIXqwpkUcLhL6TeM_3i6kHKev2CSV8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5Njk2NjMsImV4cCI6MTc0Nzk3MzI2M30.KtlAQCCZQCNcUg4hs8b3C14MrlN7OKAgx979SAqZPo8",
 									"type": "string"
 								}
 							]
@@ -1673,7 +1730,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"68292ce151884ac3f5d9d117\"\r\n}\r\n",
+							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"682fc978d31b962f371812a0\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

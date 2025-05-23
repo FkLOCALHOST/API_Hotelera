@@ -2,6 +2,7 @@ import Room from "./room.model.js"
 import Hotel from "../hotel/hotel.model.js"
 import Amenity from '../amenity/amenity.model.js'
 import Event from '../event/event.model.js'
+import Reservation from "../reservation/reservation.model.js"
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs/promises';
 import path from 'path';
@@ -283,3 +284,45 @@ export const searchRooms = async (req, res) => {
         })
     }
 }
+
+export const verifyRoom = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const { date } = req.body;
+
+        const room = await Room.findById(uid).populate("reservations");
+
+        if (!room) {
+            return res.status(404).json({
+                success: false,
+                message: "Room not found",
+            });
+        }
+
+        const selectedDate = new Date(date).toISOString().slice(0, 10);
+
+        for (const reservation of room.reservations) {
+            const checkInDate = new Date(reservation.checkIn).toISOString().slice(0, 10);
+            const checkOutDate = new Date(reservation.checkOut).toISOString().slice(0, 10);
+
+            if (selectedDate >= checkInDate && selectedDate < checkOutDate) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Room is already reserved for this date",
+                });
+            }
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Room is available for this date",
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error verifying room",
+            error: error.message,
+        });
+    }
+};
