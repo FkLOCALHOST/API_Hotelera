@@ -114,27 +114,8 @@ router.delete(
     deleteEvent
 )
 
-/**
- * @swagger
- * /event/searchEvent/{name}:
- *   get:
- *     summary: Buscar evento por nombre
- *     tags:
- *       - Event
- *     parameters:
- *       - in: path
- *         name: name
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Evento(s) encontrado(s)
- *       404:
- *         description: Evento no encontrado
- */
 router.get(
-    "/searchEvent/:name",
+    "/searchEvent",
     searchEventValidator,
     searchEvent
 )
