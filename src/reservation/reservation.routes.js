@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation, searchReservations} from "./reservation.controller.js";
+import { getStatsGenerales, createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation, searchReservations} from "./reservation.controller.js";
 import {registerReservationValidator, getReservationByIdValidator, updateReservationValidator, deleteReservationValidator, searchReservationsValidator} from "../middlewares/reservation-validator.js";
 
 const router = Router();
@@ -163,6 +163,30 @@ router.get(
     "/searchReservations",
     searchReservationsValidator,
     searchReservations
+);
+
+/**
+ * @swagger
+ * /reservation/getStatsGenerales:
+ *   get:
+ *     summary: Obtener estadísticas generales de reservaciones
+ *     tags:
+ *       - Reservation
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Estadísticas generales obtenidas exitosamente
+ *       401:
+ *         description: Token inválido o no proporcionado
+ *       403:
+ *         description: Acceso denegado, se requiere rol de administrador
+ *     x-roles:
+ *       - admin
+ */
+router.get(
+    "/getStatsGenerales",
+    getStatsGenerales
 );
 
 export default router;
