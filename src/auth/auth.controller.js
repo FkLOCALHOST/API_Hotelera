@@ -58,6 +58,8 @@ export const login = async (req, res) => {
             userDetails: {
                 token: token,
                 role: user.role,
+                _id: user._id,
+                favHotel: user.favHotel,
                 profilePicture: user.profilePicture
             }
         })
