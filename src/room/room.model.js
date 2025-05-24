@@ -44,6 +44,10 @@ const roomSchema = new Schema({
         ref: "Event",
         default: []
     }],
+    popularityRoom:{
+        type: Number,
+        default: 0
+    },
     status: {
         type: Boolean,
         default: true

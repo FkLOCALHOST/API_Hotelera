@@ -52,6 +52,15 @@ const hotelSchema = new Schema({
         ref: "Event",
         default: []
     }],
+    reservations:[{
+        type: Schema.Types.ObjectId,
+        ref: "Reservation",
+        default: []
+    }],
+    popularityHotel:{
+        type: Number,
+        default: 0
+    },
     registerDate: {
         type: Date,
         default: new Date(),

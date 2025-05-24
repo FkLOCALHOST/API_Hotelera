@@ -1370,6 +1370,55 @@
 					"response": []
 				},
 				{
+					"name": "Get Room by Id Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc2MjMzMjksImV4cCI6MTc0NzYyNjkyOX0.LMbOPl2T6OLSKWIXqwpkUcLhL6TeM_3i6kHKev2CSV8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/getUnavalilableDates/:uid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"room",
+								"getUnavalilableDates",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "682fc978d31b962f371812a0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Verify avalibility",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1653,60 +1702,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Verify avalibility",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"date\": \"2025-06-06\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/room/verifyRoom/:uid",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "3005",
-							"path": [
-								"hotelManagerSystem",
-								"v1",
-								"room",
-								"verifyRoom",
-								":uid"
-							],
-							"variable": [
-								{
-									"key": "uid",
-									"value": "682fc978d31b962f371812a0"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -1721,7 +1716,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5Njk2NjMsImV4cCI6MTc0Nzk3MzI2M30.KtlAQCCZQCNcUg4hs8b3C14MrlN7OKAgx979SAqZPo8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDgwNDk5MTAsImV4cCI6MTc0ODA1MzUxMH0.PtLKfPS9y9t0J-v5H9ikIhYFfoY_91u3onsNbeUGQeo",
 									"type": "string"
 								}
 							]
@@ -1730,7 +1725,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"682fc978d31b962f371812a0\"\r\n}\r\n",
+							"raw": "{\r\n  \"user\": \"682a5b8131c4cd18b7f23cc8\",\r\n  \"checkIn\": \"2025-06-01\",\r\n  \"checkOut\": \"2025-06-05\",\r\n  \"room\": \"6831225e9e922bccb3452203\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1853,6 +1848,53 @@
 									"key": "uid",
 									"value": "682a546d7a682b8ce5da79d8"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDgxMTE0NzAsImV4cCI6MTc0ODExNTA3MH0.Vas1fpbnnWGI4eGt8NkjowxT86tKyH8iB7VaQhjzES8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3005/hotelManagerSystem/v1/reservation/getStatsGenerales",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3005",
+							"path": [
+								"hotelManagerSystem",
+								"v1",
+								"reservation",
+								"getStatsGenerales"
 							]
 						}
 					},
