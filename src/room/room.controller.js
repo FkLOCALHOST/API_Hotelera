@@ -6,6 +6,7 @@ import Reservation from "../reservation/reservation.model.js"
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs/promises';
 import path from 'path';
+import { eachDayOfInterval } from "date-fns";
 
 cloudinary.config({
     cloud_name: 'djqjmyuoc',
@@ -322,6 +323,51 @@ export const verifyRoom = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error verifying room",
+            error: error.message,
+        });
+    }
+};
+
+export const getUnavailableDates = async (req, res) => {
+    try {
+        const { uid } = req.params;
+
+        const room = await Room.findById(uid).populate("reservations");
+
+        if (!room) {
+            return res.status(404).json({
+                success: false,
+                message: "Room not found",
+            });
+        }
+
+        let unavailableDates = [];
+
+        for (const reservation of room.reservations) {
+            const { checkIn, checkOut } = reservation;
+
+            const intervalDates = eachDayOfInterval({
+                start: new Date(checkIn),
+                end: new Date(checkOut),
+            });
+
+            const formattedDates = intervalDates.map(date =>
+                date.toISOString().slice(0, 10)
+            );
+
+            unavailableDates.push(...formattedDates);
+        }
+
+        unavailableDates = [...new Set(unavailableDates)];
+
+        return res.status(200).json({
+            success: true,
+            unavailableDates,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error getting unavailable dates",
             error: error.message,
         });
     }

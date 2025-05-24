@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { createRoom ,getRoomById ,getRooms ,updateRoom , deleteRoom, addAmenity, uploadRoomImages, searchRooms, verifyRoom} from "./room.controller.js";
+import { getUnavailableDates, createRoom ,getRoomById ,getRooms ,updateRoom , deleteRoom, addAmenity, uploadRoomImages, searchRooms, verifyRoom} from "./room.controller.js";
 import {registerRoomValidator, getRoomByIdValidator, updateRoomValidator, deleteRoomValidator, searchRoomsValidator} from "../middlewares/room-validator.js";
 import { uploadRoomPicture } from "../middlewares/multer-uploads.js";
+import { get } from "http";
 
 const router = Router();
 
@@ -57,6 +58,11 @@ router.get(
 router.get(
     "/verifyRoom/:uid",
     verifyRoom
+)
+
+router.get(
+    "/getUnavalilableDates/:uid",
+    getUnavailableDates
 )
 
 export default router;
