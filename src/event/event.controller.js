@@ -122,24 +122,27 @@ export const deleteEvent = async (req, res) => {
 
 export const searchEvent = async (req, res) => {
     try{
-        const {name} = req.params
-
-        const event = await Event.findOne({name})
-
-        if(!event){
-            return res.status(404).json({
-                success: false,
-                message: "Event not found",
-            })
+        const {search = "", limite = 10, desde = 0} = req.query
+        const skip = Number(desde);
+        const limit = Number(limite);
+        const query = {status: true}
+        if(search) {
+            const regex = new RegExp(search, "i");
+            query.$or = [{name: regex}, {place: regex}]
         }
+
+        const [total, events] = await Promise.all([
+            Event.countDocuments(query),
+            Event.find(query)
+                .skip(skip)
+                .limit(limit)
+        ]);
 
         return res.status(200).json({
             success: true,
-            message: "Event found",
-            data: event
+            total,
+            events
         })
-
-
     }catch(error){
         return res.status(500).json({
             success: false,
