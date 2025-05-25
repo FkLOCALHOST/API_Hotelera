@@ -1,6 +1,6 @@
 import Reservation from './reservation.model.js';
-import Room from "../room/room.model.js"
-import User from "../user/user.model.js"
+import Room from "../room/room.model.js";
+import User from "../user/user.model.js";
 import Amenity from "../amenity/amenity.model.js";
 import Event from "../event/event.model.js";
 import Hotel from "../hotel/hotel.model.js";
@@ -10,13 +10,55 @@ import { generateReservationPDF } from '../middlewares/receipt-generator.js';
 export const createReservation = async (req, res) => {
     try {
         const data = req.body;
-        const reservation = await Reservation.create(data);
+        const { checkIn, checkOut, room, user } = data;
 
-        const room = await Room.findById(reservation.room);
+        if (!checkIn || !checkOut || !room || !user) {
+            return res.status(400).json({
+                success: false,
+                message: 'Faltan campos obligatorios: checkIn, checkOut, room o user.'
+            });
+        }
+
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+
+        if (checkInDate >= checkOutDate) {
+            return res.status(400).json({
+                success: false,
+                message: 'La fecha de entrada debe ser anterior a la fecha de salida.'
+            });
+        }
+
+        const existingReservations = await Reservation.find({
+            room: room,
+            status: { $ne: 'CANCELLED' },
+            $or: [
+                {
+                    checkIn: { $lt: checkOutDate },
+                    checkOut: { $gt: checkInDate }
+                }
+            ]
+        });
+
+        if (existingReservations.length > 0) {
+            return res.status(409).json({
+                success: false,
+                message: 'La habitación ya está reservada en ese rango de fechas',
+                conflicts: existingReservations
+            });
+        }
+
+        const reservation = await Reservation.create({
+            ...data,
+            checkIn: checkInDate,
+            checkOut: checkOutDate
+        });
+
+        const roomData = await Room.findById(reservation.room);
 
         let AmenityPrices = [];
 
-        for (const element of room.amenity) {
+        for (const element of roomData.amenity) {
             const amenity = await Amenity.findById(element);
             if (amenity) {
                 AmenityPrices.push(parseFloat(amenity.price));
@@ -25,20 +67,33 @@ export const createReservation = async (req, res) => {
             }
         }
 
-        let priceAmenity = AmenityPrices.reduce((acc, price) => acc + price, 0);
+        const priceAmenity = AmenityPrices.reduce((acc, price) => acc + price, 0);
 
-        Promise.all([
-            await Room.findByIdAndUpdate(reservation.room, { $setOnInsert: { reservations: reservation._id }, $inc: { popularityRoom: +1 } }, { new: true }),
-            await Hotel.findByIdAndUpdate(room.hotel, { $setOnInsert: { reservations: reservation._id }, $inc: { popularityHotel: +1 } }, { new: true }),
-            await User.findByIdAndUpdate(reservation.user, { $setOnInsert: { reservations: reservation._id } }, { new: true }),
-            await User.findByIdAndUpdate(reservation.user, { $setOnInsert: { historyOfReservations: reservation._id } }, { new: true })
-        ])
-        generateReservationPDF(reservation, room, priceAmenity);
+        await Promise.all([
+            Room.findByIdAndUpdate(reservation.room, {
+                $push: { reservations: reservation._id },
+                $inc: { popularityRoom: 1 }
+            }, { new: true }),
+            Hotel.findByIdAndUpdate(roomData.hotel, {
+                $push: { reservations: reservation._id },
+                $inc: { popularityHotel: 1 }
+            }, { new: true }),
+            User.findByIdAndUpdate(reservation.user, {
+                $push: {
+                    reservations: reservation._id,
+                    historyOfReservations: reservation._id
+                }
+            }, { new: true })
+        ]);
+
+        generateReservationPDF(reservation, roomData, priceAmenity);
+
         return res.status(201).json({
             success: true,
-            message: 'Reserva creada',
+            message: 'Reserva creada exitosamente',
             reservation
         });
+
     } catch (error) {
         return res.status(500).json({
             success: false,
