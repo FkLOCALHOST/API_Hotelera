@@ -70,20 +70,9 @@ export const createReservation = async (req, res) => {
         const priceAmenity = AmenityPrices.reduce((acc, price) => acc + price, 0);
 
         await Promise.all([
-            Room.findByIdAndUpdate(reservation.room, {
-                $push: { reservations: reservation._id },
-                $inc: { popularityRoom: 1 }
-            }, { new: true }),
-            Hotel.findByIdAndUpdate(roomData.hotel, {
-                $push: { reservations: reservation._id },
-                $inc: { popularityHotel: 1 }
-            }, { new: true }),
-            User.findByIdAndUpdate(reservation.user, {
-                $push: {
-                    reservations: reservation._id,
-                    historyOfReservations: reservation._id
-                }
-            }, { new: true })
+            Room.findByIdAndUpdate(reservation.room, {$push: { reservations: reservation._id },$inc: { popularityRoom: 1 }}, { new: true }),
+            Hotel.findByIdAndUpdate(roomData.hotel, {$push: { reservations: reservation._id },$inc: { popularityHotel: 1 }}, { new: true }),
+            User.findByIdAndUpdate(reservation.user, {$push: {reservations: reservation._id,historyOfReservations: reservation._id}}, { new: true })
         ]);
 
         generateReservationPDF(reservation, roomData, priceAmenity);
