@@ -224,7 +224,6 @@ export const searchRooms = async (req, res) => {
         const skip = Number(desde);
         const limit = Number(limite);
         const query = {status: true};
-        
         if (search) {
             const regex = new RegExp(search, "i");
             query.$or = [{ name: regex }, { number: regex }];
