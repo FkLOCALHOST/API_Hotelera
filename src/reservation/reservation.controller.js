@@ -4,8 +4,9 @@ import User from "../user/user.model.js";
 import Amenity from "../amenity/amenity.model.js";
 import Event from "../event/event.model.js";
 import Hotel from "../hotel/hotel.model.js";
+import fs from 'fs';
 
-import { generateReservationPDF } from '../middlewares/receipt-generator.js';
+import { generateReservationPDF, findReservationPDF } from '../middlewares/receipt-generator.js';
 
 export const createReservation = async (req, res) => {
     try {
@@ -139,7 +140,7 @@ export const completeReservation = async (req, res) => {
 
 export const getReservations = async (req, res) => {
     try {
-        const { limite = 5, desde = 0 } = req.query;
+        const { limite = 100 ,desde = 0 } = req.query;
         const query = { status: { $ne: 'CANCELLED' } };
 
         const [total, reservations] = await Promise.all([
@@ -308,6 +309,30 @@ export const getStatsGenerales = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: 'Error al obtener las estadísticas',
+            error: error.message
+        });
+    }
+};
+
+export const getReservationReceipt = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        console.log(`[getReservationReceipt] Buscando factura para UID: ${uid}`);
+        const pdfPath = findReservationPDF(uid);
+        if (!pdfPath) {
+            console.log(`[getReservationReceipt] Factura no encontrada para UID: ${uid}`);
+            return res.status(404).json({
+                success: false,
+                message: 'Factura no encontrada para esta reservación'
+            });
+        }
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="${pdfPath.split('/').pop()}"`);
+        fs.createReadStream(pdfPath).pipe(res);
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error al buscar la factura',
             error: error.message
         });
     }

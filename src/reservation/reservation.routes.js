@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getStatsGenerales, createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation, searchReservations} from "./reservation.controller.js";
+import { getStatsGenerales, createReservation, getReservations, getReservationById, updateReservation, cancelReservation, completeReservation, searchReservations, getReservationReceipt } from "./reservation.controller.js";
 import {registerReservationValidator, getReservationByIdValidator, updateReservationValidator, deleteReservationValidator, searchReservationsValidator} from "../middlewares/reservation-validator.js";
 
 const router = Router();
@@ -187,6 +187,35 @@ router.get(
 router.get(
     "/getStatsGenerales",
     getStatsGenerales
+);
+
+/**
+ * @swagger
+ * /reservation/getReservationReceipt/{uid}:
+ *   get:
+ *     summary: Obtener la factura PDF de una reservación
+ *     tags:
+ *       - Reservation
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Factura PDF encontrada
+ *         content:
+ *           application/pdf:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       404:
+ *         description: Factura no encontrada
+ */
+router.get(
+    "/getReservationReceipt/:uid",
+    getReservationReceipt
 );
 
 export default router;
