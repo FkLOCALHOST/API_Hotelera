@@ -121,14 +121,41 @@ export const deleteEvent = async (req, res) => {
 
 
 export const searchEvent = async (req, res) => {
-    try{
-        const {search = "", limite = 10, desde = 0} = req.query
+    try {
+        const { 
+            search = "", 
+            place = "", 
+            maxPrice = "", 
+            date = "", 
+            limite = 10, 
+            desde = 0 
+        } = req.query;
+        
         const skip = Number(desde);
         const limit = Number(limite);
-        const query = {status: true}
-        if(search) {
+        const query = { status: true };
+        
+        if (search) {
             const regex = new RegExp(search, "i");
-            query.$or = [{name: regex}, {place: regex}]
+            query.$or = [{ name: regex }, { place: regex }];
+        }
+        
+        if (place) {
+            query.place = new RegExp(place, "i");
+        }
+    
+        if (maxPrice) {
+            query.price = { $lte: Number(maxPrice) };
+        }
+
+        if (date) {
+            const startDate = new Date(date);
+            startDate.setHours(0, 0, 0, 0);
+            
+            const endDate = new Date(date);
+            endDate.setHours(23, 59, 59, 999);
+            
+            query.date = { $gte: startDate, $lte: endDate };
         }
 
         const [total, events] = await Promise.all([
@@ -136,21 +163,22 @@ export const searchEvent = async (req, res) => {
             Event.find(query)
                 .skip(skip)
                 .limit(limit)
+                .sort({ date: 1 }) 
         ]);
 
         return res.status(200).json({
             success: true,
             total,
             events
-        })
-    }catch(error){
+        });
+    } catch (error) {
         return res.status(500).json({
             success: false,
-            message: "Error searching event",
+            message: "Error searching events",
             error: error.message
-        })
+        });
     }
-}
+};
 
 
 
