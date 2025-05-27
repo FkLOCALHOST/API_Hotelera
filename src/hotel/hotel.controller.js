@@ -92,34 +92,39 @@ export const getHotels = async (req, res) => {
 };
 
 export const searchHotels = async (req, res) => {
-    try {
-        const { limite = 5, desde = 0, search = "" } = req.query;
-        const skip = Number(desde);
-        const limit = Number(limite);
-        const query = { status: true };
-        if (search) {
-            const regex = new RegExp(search, 'i');
-            query.$or = [ { name: regex }, { department: regex } ];
-        }
-        const [total, hotels] = await Promise.all([
-            Hotel.countDocuments(query),
-            Hotel.find(query)
-                .skip(skip)
-                .limit(limit)
-        ]);
+  try {
+    const { limite = 5, desde = 0, search = "", category, maxPrice, department } = req.query;
 
-        return res.status(200).json({
-            success: true,
-            total,
-            hotels
-        });
-    } catch (error) {
-        return res.status(500).json({
-            success: false,
-            message: 'Error al obtener los hoteles',
-            error: error.message
-        });
+    const skip = Number(desde);
+    const limit = Number(limite);
+    const query = { status: true };
+
+    if (search) {
+      const regex = new RegExp(search, 'i');
+      query.$or = [{ name: regex }, { department: regex }];
     }
+
+    if (category) query.category = category;
+    if (department) query.department = department;
+    if (maxPrice) query.price = { $lte: Number(maxPrice) };
+
+    const [total, hotels] = await Promise.all([
+      Hotel.countDocuments(query),
+      Hotel.find(query).skip(skip).limit(limit),
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      total,
+      hotels,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Error al obtener los hoteles',
+      error: error.message,
+    });
+  }
 };
 
 export const updateHotel = async (req, res) => {

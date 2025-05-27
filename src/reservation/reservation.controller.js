@@ -284,11 +284,18 @@ export const getStatsGenerales = async (req, res) => {
             };
         });
 
-        const roomStats = habitaciones.reduce((acc, room) => {
-            acc.popularidad += room.popularityRoom || 0;
-            acc.reservaciones += (room.reservations?.length || 0);
-            return acc;
-        }, { popularidad: 0, reservaciones: 0 });
+        const roomStats = {};
+        habitaciones.forEach(room => {
+            const tipo = room.name || "Desconocido";
+            if (!roomStats[tipo]) {
+                roomStats[tipo] = {
+                    popularidad: 0,
+                    reservaciones: 0
+                };
+            }
+            roomStats[tipo].popularidad += room.popularityRoom || 0;
+            roomStats[tipo].reservaciones += (room.reservations?.length || 0);
+        });
 
         return res.status(200).json({
             success: true,
@@ -304,4 +311,4 @@ export const getStatsGenerales = async (req, res) => {
             error: error.message
         });
     }
-}
+};
