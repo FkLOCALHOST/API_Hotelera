@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const generateReservationPDF = async (reservation,room,priceAmenity) => {
+export const generateReservationPDF = async (reservation, room, priceAmenity) => {
     try {
         const templatePath = path.join(__dirname, '..', '..', 'public', 'docs', 'Factura_A4_para_empresa_hotelera.pdf');
         const outputPathDir = path.join(__dirname, '..', '..', 'public', 'docs', 'receipt');
@@ -21,12 +21,9 @@ export const generateReservationPDF = async (reservation,room,priceAmenity) => {
         const pages = pdfDoc.getPages();
         const firstPage = pages[0];
 
-        const { width, height } = firstPage.getSize();
+        const { height } = firstPage.getSize();
         const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
         const textColor = rgb(0, 0, 0);
-
-        
 
         firstPage.drawText(`${room.number}`, {
             x: 190,
@@ -103,11 +100,12 @@ export const generateReservationPDF = async (reservation,room,priceAmenity) => {
         const formattedDate = new Date().toISOString().replace(/[:.]/g, '-');
         const fileName = `reserva_${reservation.uid}_${formattedDate}.pdf`;
         const outputPath = path.join(outputPathDir, fileName);
-        const modifiedPdfBytes = await pdfDoc.save();
 
+        const modifiedPdfBytes = await pdfDoc.save();
         fs.writeFileSync(outputPath, modifiedPdfBytes);
 
-        return outputPath;
+        return fileName;
+
     } catch (err) {
         throw err;
     }
