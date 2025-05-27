@@ -235,3 +235,28 @@ export const removeFavHotel = async (req, res) => {
         });
     }
 }
+
+export const getUserLogged = async (req, res) => {
+    try {
+      const usuarioAuth = req.usuario
+ 
+      if (!usuarioAuth) {
+        return res.status(401).json({
+          success: false,
+          message: "No autenticado"
+        })
+      }
+ 
+      return res.status(200).json({
+        success: true,
+        user: usuarioAuth
+      })
+ 
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        message: "Error al obtener el usuario",
+        error: err.message
+      })
+    }
+  }

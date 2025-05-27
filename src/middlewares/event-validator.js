@@ -90,11 +90,11 @@ export const deleteEventValidator = [
 ]
 
 export const searchEventValidator = [
-    param('name')
+    param('search')
         .notEmpty()
-        .withMessage('Event name is required')
+        .withMessage('Search term is required')
         .isString()
-        .withMessage('Event name must be a string'),
+        .withMessage('Search term must be a string'),
 ]
 
 

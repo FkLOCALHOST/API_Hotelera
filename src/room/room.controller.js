@@ -6,6 +6,8 @@ import Reservation from "../reservation/reservation.model.js"
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs/promises';
 import path from 'path';
+import { eachDayOfInterval } from "date-fns";
+import { stat } from "fs"
 
 cloudinary.config({
     cloud_name: 'djqjmyuoc',
@@ -218,72 +220,36 @@ export const uploadRoomImages = async (req, res) => {
 
 export const searchRooms = async (req, res) => {
     try {
-        const { desde = 0, limite = 5, search = '' } = req.query
-        const skip  = Number(desde)
-        const limit = Number(limite)
-        const regex = new RegExp(search, 'i')
-
-        const pipeline = [
-            { $match: { status: true } },
-            { $lookup: {
-                from: Hotel.collection.name,
-                localField: 'hotel',
-                foreignField: '_id',
-                as: 'hotel'
-            }},
-            { $unwind: '$hotel' },
-            { $lookup: {
-                from: Amenity.collection.name,
-                localField: 'amenity',
-                foreignField: '_id',
-                as: 'amenities'
-            }},
-            { $lookup: {
-                from: Event.collection.name,
-                localField: 'roomEvent',
-                foreignField: '_id',
-                as: 'events'
-            }}
-        ]
-
+        const { search = "", limite = 5, desde = 0 } = req.query;
+        const skip = Number(desde);
+        const limit = Number(limite);
+        const query = {status: true};
         if (search) {
-            pipeline.push({
-                $match: {
-                    $or: [
-                        { number:    regex },
-                        { description: regex },
-                        { capacity:    regex },
-                        { price:       regex },
-                        { 'hotel.name':       regex },
-                        { 'hotel.department': regex },
-                        { 'amenities.name':   regex },
-                        { 'events.name':      regex },
-                        { 'events.place':     regex }
-                    ]
-                }
-            })
+            const regex = new RegExp(search, "i");
+            query.$or = [{ name: regex },{number: regex }]
         }
+        
+        const [total, rooms] = await Promise.all([
+            Room.countDocuments(query),
+            Room.find(query)
+                .skip(skip)
+                .limit(limit)
+                .populate("amenity")
+        ]);
 
-        pipeline.push({
-            $facet: {
-                total: [ { $count: 'count' } ],
-                data:  [ { $skip: skip }, { $limit: limit } ]
-            }
-        })
-
-        const agg = await Room.aggregate(pipeline)
-        const total = agg[0].total[0]?.count || 0
-        const rooms = agg[0].data
-
-        res.json({ success: true, total, rooms })
-    } catch(error) {
-        res.status(500).json({
+        return res.status(200).json({
+            success: true,
+            total,
+            rooms
+        });
+    } catch (error) {
+        return res.status(500).json({
             success: false,
-            message: 'Error buscando habitaciones',
+            message: "Error searching rooms",
             error: error.message
-        })
+        });
     }
-}
+};
 
 export const verifyRoom = async (req, res) => {
     try {
@@ -322,6 +288,51 @@ export const verifyRoom = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error verifying room",
+            error: error.message,
+        });
+    }
+};
+
+export const getUnavailableDates = async (req, res) => {
+    try {
+        const { uid } = req.params;
+
+        const room = await Room.findById(uid).populate("reservations");
+
+        if (!room) {
+            return res.status(404).json({
+                success: false,
+                message: "Room not found",
+            });
+        }
+
+        let unavailableDates = [];
+
+        for (const reservation of room.reservations) {
+            const { checkIn, checkOut } = reservation;
+
+            const intervalDates = eachDayOfInterval({
+                start: new Date(checkIn),
+                end: new Date(checkOut),
+            });
+
+            const formattedDates = intervalDates.map(date =>
+                date.toISOString().slice(0, 10)
+            );
+
+            unavailableDates.push(...formattedDates);
+        }
+
+        unavailableDates = [...new Set(unavailableDates)];
+
+        return res.status(200).json({
+            success: true,
+            unavailableDates,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error getting unavailable dates",
             error: error.message,
         });
     }

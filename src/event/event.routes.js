@@ -7,6 +7,27 @@ import { deleteFileOnError } from '../middlewares/delete-file-error.js'
 
 const router = Router()
 
+/**
+ * @swagger
+ * /event/createEvent:
+ *   post:
+ *     summary: Crear un nuevo evento
+ *     tags:
+ *       - Event
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Evento creado exitosamente
+ */
 router.post(
     "/createEvent",
     uploadEventPicture.single("image"),
@@ -15,11 +36,51 @@ router.post(
     createEvent
 )
 
+/**
+ * @swagger
+ * /event/getEvents:
+ *   get:
+ *     summary: Obtener todos los eventos
+ *     tags:
+ *       - Event
+ *     responses:
+ *       200:
+ *         description: Lista de eventos
+ */
 router.get(
     "/getEvents",
     getEvents
 )
 
+/**
+ * @swagger
+ * /event/updateEvent/{eid}:
+ *   put:
+ *     summary: Actualizar evento
+ *     tags:
+ *       - Event
+ *     parameters:
+ *       - in: path
+ *         name: eid
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Evento actualizado
+ *       404:
+ *         description: Evento no encontrado
+ */
 router.put(
     "/updateEvent/:eid",
     uploadEventPicture.single("image"),
@@ -28,6 +89,25 @@ router.put(
     updateEvent
 )
 
+/**
+ * @swagger
+ * /event/deleteEvent/{eid}:
+ *   delete:
+ *     summary: Eliminar evento
+ *     tags:
+ *       - Event
+ *     parameters:
+ *       - in: path
+ *         name: eid
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Evento eliminado
+ *       404:
+ *         description: Evento no encontrado
+ */
 router.delete(
     "/deleteEvent/:eid",
     deleteEventValidator,
@@ -35,11 +115,9 @@ router.delete(
 )
 
 router.get(
-    "/searchEvent/:name",
+    "/searchEvent",
     searchEventValidator,
     searchEvent
 )
-
-
 
 export default router

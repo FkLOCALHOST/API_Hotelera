@@ -26,13 +26,13 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, username, password } = req.body
   try {
     let user = null;
     if (email) {
-      user = await User.findOne({ email });
+      user = await User.findOne({ email })
     } else if (username) {
-      user = await User.findOne({ username });
+      user = await User.findOne({ username })
     }
 
     if (!user) {
@@ -42,7 +42,7 @@ export const login = async (req, res) => {
       });
     }
 
-    const validPassword = await verify(user.password, password);
+    const validPassword = await verify(user.password, password)
 
     if (!validPassword) {
       return res.status(400).json({
@@ -53,20 +53,21 @@ export const login = async (req, res) => {
 
     const token = await generateJWT(user.id);
 
-    return res.status(200).json({
-      message: "Login successful",
-      userDetails: {
-        token: token,
-        role: user.role,
-        profilePicture: user.profilePicture,
-        _id: user._id,
-        favHotel: user.favHotel
-      },
-    });
-  } catch (err) {
-    return res.status(500).json({
-      message: "login failed, server error",
-      error: err.message,
-    });
-  }
-};
+        return res.status(200).json({
+            message: "Login successful",
+            userDetails: {
+                token: token,
+                role: user.role,
+                _id: user._id,
+                favHotel: user.favHotel,
+                profilePicture: user.profilePicture
+            }
+        })
+    }catch(err){
+        return res.status(500).json({
+            message: "login failed, server error",
+            error: err.message
+        })
+    }
+}
+
