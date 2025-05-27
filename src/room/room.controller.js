@@ -220,15 +220,23 @@ export const uploadRoomImages = async (req, res) => {
 
 export const searchRooms = async (req, res) => {
     try {
-        const { search = "", limite = 5, desde = 0 } = req.query;
+        const { search = "", capacity = "", maxPrice = "", limite = 5, desde = 0 } = req.query;
         const skip = Number(desde);
         const limit = Number(limite);
         const query = {status: true};
         if (search) {
             const regex = new RegExp(search, "i");
-            query.$or = [{ name: regex },{number: regex }]
+            query.$or = [{ name: regex }, { number: regex }];
         }
         
+        if (capacity) {
+            query.capacity = { $gte: Number(capacity) };
+        }
+        
+        if (maxPrice) {
+            query.price = { $lte: Number(maxPrice) };
+        }
+
         const [total, rooms] = await Promise.all([
             Room.countDocuments(query),
             Room.find(query)
