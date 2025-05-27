@@ -140,7 +140,7 @@ export const completeReservation = async (req, res) => {
 
 export const getReservations = async (req, res) => {
     try {
-        const { limite = 100 ,desde = 0 } = req.query;
+        const { limite = 5 ,desde = 0 } = req.query;
         const query = { status: { $ne: 'CANCELLED' } };
 
         const [total, reservations] = await Promise.all([
