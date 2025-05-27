@@ -98,7 +98,7 @@ export const generateReservationPDF = async (reservation, room, priceAmenity) =>
         });
 
         const formattedDate = new Date().toISOString().replace(/[:.]/g, '-');
-        const fileName = `reserva_${reservation.uid}_${formattedDate}.pdf`;
+        const fileName = `reserva_${reservation.user}_${formattedDate}.pdf`;
         const outputPath = path.join(outputPathDir, fileName);
 
         const modifiedPdfBytes = await pdfDoc.save();
