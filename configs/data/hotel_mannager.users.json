@@ -12,10 +12,75 @@
   "role": "ADMIN_ROLE",
   "rooms": [],
   "events": [],
-  "historyOfReservations": [],
+  "historyOfReservations": [
+    {
+      "$oid": "682fe6c3f0936707d11d9dd5"
+    },
+    {
+      "$oid": "68321bdf5762edf64201b51e"
+    },
+    {
+      "$oid": "68321dd55762edf64201b53e"
+    },
+    {
+      "$oid": "6832574a5762edf64201b5e8"
+    },
+    {
+      "$oid": "6835f2c3b1ed2b9d33c829e8"
+    },
+    {
+      "$oid": "6835f42922e9086b77b4f79e"
+    },
+    {
+      "$oid": "683604329ef3c82abe8c7e7b"
+    },
+    {
+      "$oid": "683615952b5924e1090ec614"
+    },
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
   "status": true,
   "reservations": [
-    ""
+    "",
+    {
+      "$oid": "682fe6c3f0936707d11d9dd5"
+    },
+    {
+      "$oid": "68321bdf5762edf64201b51e"
+    },
+    {
+      "$oid": "68321dd55762edf64201b53e"
+    },
+    {
+      "$oid": "6832574a5762edf64201b5e8"
+    },
+    {
+      "$oid": "6835f2c3b1ed2b9d33c829e8"
+    },
+    {
+      "$oid": "6835f42922e9086b77b4f79e"
+    },
+    {
+      "$oid": "683604329ef3c82abe8c7e7b"
+    },
+    {
+      "$oid": "683615952b5924e1090ec614"
+    },
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
+  "favHotel": [
+    "6826aceeb33f7a217a4c710f",
+    "68361f2b0434ef561269f894"
   ]
 },
 {
@@ -42,5 +107,6 @@
       "$oid": "682a5e019c9a8aae483e56a2"
     }
   ],
-  "status": true
+  "status": true,
+  "favHotel": []
 }]

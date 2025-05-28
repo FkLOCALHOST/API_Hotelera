@@ -1,20 +1,27 @@
 [{
   "_id": {
-    "$oid": "68268f9ecb0b56ddc36c94e4"
+    "$oid": "6836885741eb38b3abd646c8"
   },
-  "name": "dsdfds",
-  "description": "fddgfdgdsdsvdfvfd",
-  "price": 4546,
+  "name": "Boda de Diddy",
+  "description": "Unión marital y un evento por invitación",
+  "price": 0,
   "date": {
-    "$date": "2025-06-06T00:00:00.000Z"
+    "$date": "2025-05-30T00:00:00.000Z"
   },
-  "place": "gfdgfd",
-  "image": null,
+  "place": "Salón Imperial",
+  "image": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748404310/events/kisbfzvlpfqdlzmk8qxm.jpg",
+  "type": "PRIVATE",
+  "hotel": {
+    "$oid": "68362a49ec9bf81e38824c7b"
+  },
+  "room": {
+    "$oid": "683679ce35ef2b9d862125a3"
+  },
   "status": true,
   "createdAt": {
-    "$date": "2025-05-16T01:06:38.388Z"
+    "$date": "2025-05-28T03:51:51.282Z"
   },
   "updatedAt": {
-    "$date": "2025-05-16T01:06:38.388Z"
+    "$date": "2025-05-28T03:51:51.282Z"
   }
 }]

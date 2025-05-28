@@ -1,10 +1,200 @@
 [{
   "_id": {
-    "$oid": "6826a6c08e7e69613908a6a6"
+    "$oid": "68365df97656b9ff8bdff067"
+  },
+  "name": "Gym",
+  "description": "Acceso al gym del hotel durante el día",
+  "price": "70.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e147656b9ff8bdff06d"
+  },
+  "name": "Spa",
+  "description": "Tratamiento de relajación en el spa",
+  "price": "120.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e197656b9ff8bdff070"
+  },
+  "name": "Piscina",
+  "description": "Acceso ilimitado a la piscina durante la estadía",
+  "price": "50.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e1e7656b9ff8bdff073"
+  },
+  "name": "Desayuno Buffet",
+  "description": "Desayuno completo tipo buffet",
+  "price": "35.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e237656b9ff8bdff076"
+  },
+  "name": "Parqueo",
+  "description": "Estacionamiento privado con seguridad 24/7",
+  "price": "25.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e287656b9ff8bdff079"
+  },
+  "name": "Sauna",
+  "description": "Acceso al sauna durante el horario de apertura",
+  "price": "60.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e2c7656b9ff8bdff07c"
+  },
+  "name": "Internet Premium",
+  "description": "Conexión de alta velocidad para streaming y trabajo remoto",
+  "price": "20.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e337656b9ff8bdff07f"
+  },
+  "name": "Barra Libre",
+  "description": "Acceso a bebidas ilimitadas durante el evento",
+  "price": "100.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e557656b9ff8bdff085"
+  },
+  "name": "Lavandería",
+  "description": "Servicio de lavado y planchado de ropa",
+  "price": "30.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e5a7656b9ff8bdff088"
+  },
+  "name": "Transporte al Aeropuerto",
+  "description": "Shuttle privado desde y hacia el aeropuerto",
+  "price": "80.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e607656b9ff8bdff08b"
+  },
+  "name": "Cuna para Bebé",
+  "description": "Cuna equipada para bebés en la habitación",
+  "price": "15.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e677656b9ff8bdff08e"
+  },
+  "name": "Caja de Seguridad",
+  "description": "Caja fuerte para guardar objetos de valor",
+  "price": "10.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e6e7656b9ff8bdff091"
+  },
+  "name": "Room Service",
+  "description": "Servicio a la habitación disponible 24/7",
+  "price": "40.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e767656b9ff8bdff094"
+  },
+  "name": "Terraza Privada",
+  "description": "Acceso exclusivo a una terraza con vista",
+  "price": "70.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e807656b9ff8bdff097"
+  },
+  "name": "Minibar",
+  "description": "Refrigerador con snacks y bebidas",
+  "price": "35.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e867656b9ff8bdff09a"
   },
   "name": "Jacuzzi",
-  "description": "Acceso al jacuzzi del hotel durante el día",
-  "price": "30.00",
+  "description": "Uso de jacuzzi privado",
+  "price": "90.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e8d7656b9ff8bdff09d"
+  },
+  "name": "Servicio de Niñera",
+  "description": "Cuidado infantil por horas",
+  "price": "65.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e957656b9ff8bdff0a0"
+  },
+  "name": "Masaje Relajante",
+  "description": "Masaje de cuerpo completo por 60 minutos",
+  "price": "110.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365e9e7656b9ff8bdff0a3"
+  },
+  "name": "Despertador Personal",
+  "description": "Llamada personalizada para despertarte",
+  "price": "5.00",
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68365ea37656b9ff8bdff0a6"
+  },
+  "name": "Bicicletas",
+  "description": "Alquiler de bicicletas para recorrer la ciudad",
+  "price": "20.00",
   "status": true,
   "__v": 0
 }]
