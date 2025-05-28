@@ -117,7 +117,7 @@ export const deleteEvent = async (req, res) => {
             error: error.message
         })
     }
-}
+} 
 
 export const searchEvent = async (req, res) => {
     try {
