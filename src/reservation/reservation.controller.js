@@ -143,12 +143,23 @@ export const getReservations = async (req, res) => {
         const { limite = 30 ,desde = 0 } = req.query;
         const query = { status: { $ne: 'CANCELLED' } };
 
-        const [total, reservations] = await Promise.all([
+        const [total, reservationsRaw] = await Promise.all([
             Reservation.countDocuments(query),
             Reservation.find(query)
                 .skip(Number(desde))
                 .limit(Number(limite))
+                .populate('user', 'name')
+                .populate('room', 'name') 
         ]);
+
+        const reservations = reservationsRaw.map(r => {
+            const obj = r.toObject();
+            obj.user = obj.user?.name || null;
+            obj.room = obj.room?.name || null;
+            obj.uid = obj._id;
+            delete obj._id;
+            return obj;
+        });
 
         return res.status(200).json({
             success: true,
