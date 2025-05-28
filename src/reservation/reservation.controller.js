@@ -155,7 +155,7 @@ export const getReservations = async (req, res) => {
         const reservations = reservationsRaw.map(r => {
             const obj = r.toObject();
             obj.user = obj.user?.name || null;
-            obj.room = obj.room?.name || null;
+            obj.room = obj.room?.name || null; 
             obj.uid = obj._id;
             delete obj._id;
             return obj;

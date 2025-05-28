@@ -20,7 +20,7 @@ const reservationSchema = new Schema({
     },
     room:{
         type: Schema.Types.ObjectId,
-        ref: 'Room',
+        ref: 'Room' ,
         required: true
     },
     status: {
