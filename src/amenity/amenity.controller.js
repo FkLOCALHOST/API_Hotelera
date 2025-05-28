@@ -46,7 +46,7 @@ export const getAmenityById = async (req, res) => {
 
 export const getAmenity = async (req, res) => {
     try{
-        const { limite = 5, desde = 0 } = req.query
+        const { limite = 50, desde = 0 } = req.query
         const query = { status: true }
 
         const [total, amenity ] = await Promise.all([
