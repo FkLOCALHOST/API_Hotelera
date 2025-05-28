@@ -1,0 +1,249 @@
+[{
+  "_id": {
+    "$oid": "68366c8f1796a4a18f3bc1d0"
+  },
+  "name": "Suite Luna",
+  "number": "54",
+  "price": "300",
+  "description": "Espaciosa habitación con vista al mar.",
+  "reservations": [
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
+  "amenity": [
+    {
+      "$oid": "68365e197656b9ff8bdff070"
+    }
+  ],
+  "capacity": "2",
+  "hotel": {
+    "$oid": "68361e6f0434ef561269f88a"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397195/rooms/rhuy4lcqyxvbhljcuayt.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397196/rooms/xizfeswrizvy8bn5skia.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397197/rooms/ovihb47ivoyovxpkpagi.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397197/rooms/ackoom9l5ew7vzs09jci.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397198/rooms/gyou3ea5ry9ag5uxp86g.webp"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 1,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68366d1e1796a4a18f3bc1dc"
+  },
+  "name": "Habitación Sol",
+  "number": "102",
+  "price": "250",
+  "description": "Con acceso a terraza privada.",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e767656b9ff8bdff094"
+    }
+  ],
+  "capacity": "2",
+  "hotel": {
+    "$oid": "68361f040434ef561269f88f"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397339/rooms/rqfhujxfewuh0valyj7a.webp",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397340/rooms/jc2wgvt19q1owevp0br5.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397340/rooms/praztsesgwmlthunlgo0.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397341/rooms/yg7p8cwaldctsjozmzny.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397342/rooms/oy62boluqaabfqotig1a.jpg"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68366df11796a4a18f3bc1e8"
+  },
+  "name": "Suite Familiar",
+  "number": "23",
+  "price": "200",
+  "description": "Ideal para familias, dos camas dobles.",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e1e7656b9ff8bdff073"
+    }
+  ],
+  "capacity": "4",
+  "hotel": {
+    "$oid": "68361f2b0434ef561269f894"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397549/rooms/fo8no3kvtn3ahq337cnj.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397550/rooms/ntkyeecillekapynjog6.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397551/rooms/bcz44wlparzbdtfom3ng.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397552/rooms/fqvg5inup5mqoligto03.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397553/rooms/lny4pru78cmixby6af01.jpg"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68366e961796a4a18f3bc1f4"
+  },
+  "name": "Habitación Ejecutiva",
+  "number": "70",
+  "price": "150",
+  "description": "Perfecta para viajes de negocios.\r\n",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e147656b9ff8bdff06d"
+    }
+  ],
+  "capacity": "2",
+  "hotel": {
+    "$oid": "68361f2b0434ef561269f894"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397715/rooms/ppxmxolj7bdwl5mkpmki.webp",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397716/rooms/lilwouog8o8afztrgmtw.webp",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397716/rooms/vdaeqbhhvdl9szoqm9h7.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748397717/rooms/ikhfcbwq25fo2z3gabvb.webp"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683670041796a4a18f3bc210"
+  },
+  "name": "Loft Montaña",
+  "number": "10",
+  "price": "130",
+  "description": "Decoración rústica con chimenea.",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e197656b9ff8bdff070"
+    }
+  ],
+  "capacity": "3",
+  "hotel": {
+    "$oid": "683629d9ec9bf81e38824c71"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398081/rooms/pog5mkcjo2nlqpyi7skl.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398081/rooms/jwlxhoxkqgo8njavsz9m.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398082/rooms/jfrtdjgbdzfouih6umuv.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398083/rooms/oytlitfcdnybgquzai98.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398084/rooms/omtlze2a0srkefkmuqjr.jpg"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6836711f1796a4a18f3bc21c"
+  },
+  "name": "Suite Jardín",
+  "number": "106",
+  "price": "160",
+  "description": "Salida directa al jardín privado.",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e1e7656b9ff8bdff073"
+    }
+  ],
+  "capacity": "2",
+  "hotel": {
+    "$oid": "68362a0cec9bf81e38824c76"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398363/rooms/rzgjzpvnq4mggw8oi0rj.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398363/rooms/ybf7j3xlnwngkzu5a7dr.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398365/rooms/pgttya7teqpgfzezgknv.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398365/rooms/k2iz62xql5g1irvwcgbr.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748398366/rooms/ayqkd9lczyxkmxkdzguk.jpg"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683673c535ef2b9d86212539"
+  },
+  "name": "Habitación Ejecutiva",
+  "number": "36",
+  "price": "150",
+  "description": "Perfecta para viajes de negocios.",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e5a7656b9ff8bdff088"
+    }
+  ],
+  "capacity": "2",
+  "hotel": {
+    "$oid": "68362a0cec9bf81e38824c76"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748399041/rooms/klvddfnh0fgo80bj7fvx.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748399042/rooms/meyf9jjnoryuhy1mwwcb.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748399043/rooms/opn1hihigjpbatzoazgl.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748399044/rooms/uwepfd7dyjupippshbeh.jpg",
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748399044/rooms/k1c5ojny4j1gqloupr5d.webp"
+  ],
+  "roomEvent": [],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683679ce35ef2b9d862125a3"
+  },
+  "name": "Salón Imperial",
+  "number": "A1",
+  "price": "8499",
+  "description": "Salon para eventos de lujo",
+  "reservations": [],
+  "amenity": [
+    {
+      "$oid": "68365e337656b9ff8bdff07f"
+    }
+  ],
+  "capacity": "298",
+  "hotel": {
+    "$oid": "68362a49ec9bf81e38824c7b"
+  },
+  "preView": [
+    "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748400589/rooms/inabelhtjtfaw5gdzxmz.jpg"
+  ],
+  "roomEvent": [
+    {
+      "$oid": "68367a1f35ef2b9d862125b2"
+    },
+    {
+      "$oid": "6836885741eb38b3abd646c8"
+    }
+  ],
+  "popularityRoom": 0,
+  "status": true,
+  "__v": 0
+}]

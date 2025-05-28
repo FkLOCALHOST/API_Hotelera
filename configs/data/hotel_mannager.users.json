@@ -1,0 +1,112 @@
+[{
+  "_id": {
+    "$oid": "682a5b8131c4cd18b7f23cc8"
+  },
+  "name": "Javier",
+  "surname": "Herrera",
+  "userName": "Zodiacal0",
+  "profilePicture": "140206845-1747606401173.jpeg",
+  "email": "javierherrera5513@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$/MxKi/KwDgifgUlN+elXOA$lT+B886BXo4rYC1JEsqhZ+Qn46/dx3JtSGKKDTEaeQU",
+  "phone": "12345678",
+  "role": "ADMIN_ROLE",
+  "rooms": [],
+  "events": [],
+  "historyOfReservations": [
+    {
+      "$oid": "682fe6c3f0936707d11d9dd5"
+    },
+    {
+      "$oid": "68321bdf5762edf64201b51e"
+    },
+    {
+      "$oid": "68321dd55762edf64201b53e"
+    },
+    {
+      "$oid": "6832574a5762edf64201b5e8"
+    },
+    {
+      "$oid": "6835f2c3b1ed2b9d33c829e8"
+    },
+    {
+      "$oid": "6835f42922e9086b77b4f79e"
+    },
+    {
+      "$oid": "683604329ef3c82abe8c7e7b"
+    },
+    {
+      "$oid": "683615952b5924e1090ec614"
+    },
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
+  "status": true,
+  "reservations": [
+    "",
+    {
+      "$oid": "682fe6c3f0936707d11d9dd5"
+    },
+    {
+      "$oid": "68321bdf5762edf64201b51e"
+    },
+    {
+      "$oid": "68321dd55762edf64201b53e"
+    },
+    {
+      "$oid": "6832574a5762edf64201b5e8"
+    },
+    {
+      "$oid": "6835f2c3b1ed2b9d33c829e8"
+    },
+    {
+      "$oid": "6835f42922e9086b77b4f79e"
+    },
+    {
+      "$oid": "683604329ef3c82abe8c7e7b"
+    },
+    {
+      "$oid": "683615952b5924e1090ec614"
+    },
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
+  "favHotel": [
+    "6826aceeb33f7a217a4c710f",
+    "68361f2b0434ef561269f894"
+  ]
+},
+{
+  "_id": {
+    "$oid": "682a5dd89c9a8aae483e569f"
+  },
+  "name": "Eduardo",
+  "surname": "Herrera",
+  "userName": "Zodiacal",
+  "profilePicture": "140206845-1747607000874.jpeg",
+  "email": "javierherrera@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$t11zqAm6JNLOxUq22+BsPQ$jfdAVvT7psqw1m+Q/qmLDfkfdm8tWpqOoimDGQ4W7wk",
+  "phone": "12345678",
+  "role": "USER_ROLE",
+  "rooms": [],
+  "events": [],
+  "reservations": [
+    {
+      "$oid": "682a5e019c9a8aae483e56a2"
+    }
+  ],
+  "historyOfReservations": [
+    {
+      "$oid": "682a5e019c9a8aae483e56a2"
+    }
+  ],
+  "status": true,
+  "favHotel": []
+}]
