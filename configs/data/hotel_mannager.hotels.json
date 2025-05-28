@@ -1,23 +1,277 @@
 [{
   "_id": {
-    "$oid": "6826aceeb33f7a217a4c710f"
+    "$oid": "68361e6f0434ef561269f88a"
   },
-  "name": "Hotel El Paraíso",
-  "email": "contacto@elparaiso.com",
-  "phone": "50212345678",
-  "addres": "Calle Real, Zona 1, Guatemala",
-  "category": "2 STARS",
-  "price": 1200,
-  "description": "Un hotel cómodo con vista al lago.",
+  "name": "Hotel Aurora",
+  "email": "contacto@hotelaurora.com",
+  "phone": "22334455",
+  "address": "5a Avenida 14-30, Zona 1, Ciudad de Guatemala",
+  "category": "5 STARS",
+  "price": 850,
+  "description": "Hotel de lujo con spa, restaurante gourmet y vista al volcán.",
   "department": "Guatemala",
   "rooms": [
     {
-      "$oid": "68292ce151884ac3f5d9d117"
+      "$oid": "68366c081796a4a18f3bc1b9"
+    },
+    {
+      "$oid": "68366c8f1796a4a18f3bc1d0"
     }
   ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748377199/hotels/hzypinykaffmun0wc677.webp",
   "status": true,
+  "hotelEvents": [],
+  "reservations": [
+    {
+      "$oid": "68367b0d35ef2b9d862125d1"
+    },
+    {
+      "$oid": "68367c5835ef2b9d8621260a"
+    }
+  ],
+  "popularityHotel": 1,
   "registerDate": {
-    "$date": "2025-05-16T03:11:34.810Z"
+    "$date": "2025-05-27T19:48:41.796Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68361f040434ef561269f88f"
+  },
+  "name": "Hotel Brisa Marina",
+  "email": "reservas@brisamarina.com",
+  "phone": "24567890",
+  "address": "Calle del Mar 22-10, Puerto San José",
+  "category": "4 STARS",
+  "price": 600,
+  "description": "Perfecto para escapadas en la playa, incluye piscina y buffet.",
+  "department": "Escuintla",
+  "rooms": [
+    {
+      "$oid": "68366d1e1796a4a18f3bc1dc"
+    }
+  ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748377348/hotels/l1i4gvh5i1jomeiwu9gx.png",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T19:48:41.796Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68361f2b0434ef561269f894"
+  },
+  "name": "Hotel Encanto Colonial",
+  "email": "info@encantocolonial.gt",
+  "phone": "77991234",
+  "address": "3a Calle Oriente 15, Antigua Guatemala",
+  "category": "5 STARS",
+  "price": 950,
+  "description": "Elegante hotel colonial con historia, jardín y terrazas.",
+  "department": "Sacatepéquez",
+  "rooms": [
+    {
+      "$oid": "68366df11796a4a18f3bc1e8"
+    },
+    {
+      "$oid": "68366e961796a4a18f3bc1f4"
+    }
+  ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748377386/hotels/wf3hirbalozrrda7oyuv.webp",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T19:48:41.796Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68361f610434ef561269f899"
+  },
+  "name": "Hotel El Refugio",
+  "email": "contacto@elrefugio.gt",
+  "phone": "33445566",
+  "address": "10a Avenida 3-45, Cobán",
+  "category": "3 STARS",
+  "price": 350,
+  "description": "Comodidad y tranquilidad en medio de la naturaleza.",
+  "department": "Alta Verapaz",
+  "rooms": [],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748377440/hotels/iuhrsygttsafgsejkp7m.jpg",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T19:48:41.796Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683629d9ec9bf81e38824c71"
+  },
+  "name": "Hotel Paraíso Escondido",
+  "email": "paraiso@escondido.gt",
+  "phone": "66778899",
+  "address": "187 km Ruta a Playa El Banco",
+  "category": "2 STARS",
+  "price": 280,
+  "description": "Ideal para mochileros, cabañas sencillas frente al mar.",
+  "department": "Santa Rosa",
+  "rooms": [
+    {
+      "$oid": "683670041796a4a18f3bc210"
+    }
+  ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380120/hotels/jki128kilrib43ut7r5b.png",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68362a0cec9bf81e38824c76"
+  },
+  "name": "Hotel Las Flores",
+  "email": "reservas@hotellasflores.gt",
+  "phone": "77663344",
+  "address": "2a Avenida 6-78, Quetzaltenango Centro",
+  "category": "4 STARS",
+  "price": 590,
+  "description": "Excelente opción en el corazón de Xela, con restaurante y bar.",
+  "department": "Quetzaltenango",
+  "rooms": [
+    {
+      "$oid": "6836711f1796a4a18f3bc21c"
+    },
+    {
+      "$oid": "683673c535ef2b9d86212539"
+    }
+  ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380172/hotels/hbxl6n5tbdykv9mb9yym.jpg",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68362a49ec9bf81e38824c7b"
+  },
+  "name": "Hotel Senderos del Lago",
+  "email": "info@senderosdellago.com",
+  "phone": "77905543",
+  "address": "Calle Panajachel 1-22, Zona 2",
+  "category": "3 STARS",
+  "price": 410,
+  "description": "Hermosa vista al Lago Atitlán, perfecto para relajarse.",
+  "department": "Sololá",
+  "rooms": [
+    {
+      "$oid": "683679ce35ef2b9d862125a3"
+    }
+  ],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380233/hotels/jmbulkj7omfgbjdv2buu.jpg",
+  "status": true,
+  "hotelEvents": [
+    {
+      "$oid": "68367a1f35ef2b9d862125b2"
+    },
+    {
+      "$oid": "6836885741eb38b3abd646c8"
+    }
+  ],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68362aaaec9bf81e38824c80"
+  },
+  "name": "Hotel Paseo del Bosque",
+  "email": "contacto@paseobosque.gt",
+  "phone": "77882211",
+  "address": "7a Avenida 4-12, Zona 3, Jalapa",
+  "category": "1 STARS",
+  "price": 149,
+  "description": "Alojamiento económico con servicios básicos.",
+  "department": "Jalapa",
+  "rooms": [],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380329/hotels/swbhgy5kv6wsoa0dcs7b.jpg",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68362ad8ec9bf81e38824c85"
+  },
+  "name": "Hotel Vista Dorada",
+  "email": "reservas@vistadorada.gt",
+  "phone": "22306543",
+  "address": "Avenida Las Américas 23-89, Zona 14",
+  "category": "5 STARS",
+  "price": 1100,
+  "description": "Alta gama, gimnasio, jacuzzi y salón ejecutivo.",
+  "department": "Guatemala",
+  "rooms": [],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380375/hotels/yarv8k4qwg8tnnsdhd2v.jpg",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68362b11ec9bf81e38824c8a"
+  },
+  "name": "Hotel Colonial San Marcos",
+  "email": "info@colonialsanmarcos.com",
+  "phone": "77556677",
+  "address": "4a Avenida 2-55, San Marcos Centro",
+  "category": "3 STARS",
+  "price": 375,
+  "description": "Cómodo y bien ubicado, con desayuno incluido.",
+  "department": "San Marcos",
+  "rooms": [],
+  "imageHotel": "https://res.cloudinary.com/djqjmyuoc/image/upload/v1748380432/hotels/abbsbowukz61a2t0r6yk.jpg",
+  "status": true,
+  "hotelEvents": [],
+  "reservations": [],
+  "popularityHotel": 0,
+  "registerDate": {
+    "$date": "2025-05-27T21:04:04.308Z"
   },
   "__v": 0
 }]

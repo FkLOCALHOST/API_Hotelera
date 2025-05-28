@@ -665,13 +665,25 @@
 			"item": [
 				{
 					"name": "Register Amenity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDc5NTc2MTAsImV4cCI6MTc0Nzk2MTIxMH0.SQeXMJm8iubzZOX3OakPQbk6LSYaSrBTrmYF4PIZOss",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODJhNWI4MTMxYzRjZDE4YjdmMjNjYzgiLCJpYXQiOjE3NDgzOTE3ODcsImV4cCI6MTc0ODM5NTM4N30.CjL8Od0CAtvpweHggK9ziMbC9YvSR3RwtC5vIfz9vJU",
 									"type": "string"
 								}
 							]
@@ -680,7 +692,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Gym\",\r\n  \"description\": \"Acceso al gym del hotel durante el día\",\r\n  \"price\": \"70.00\"\r\n}\r\n",
+							"raw": "{\"name\": \"Bicicletas\", \"description\": \"Alquiler de bicicletas para recorrer la ciudad\", \"price\": \"20.00\"}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1370,7 +1382,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Room by Id Copy",
+					"name": "Check Date",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
